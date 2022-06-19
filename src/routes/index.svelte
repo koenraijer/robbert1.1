@@ -1,6 +1,6 @@
 <script>
     import Figure from '$lib/components/Figure.svelte'
-    export let projects, nav, sm, md, lg, xl, xxl
+    export let projects
 
     /*
     $config.domain = configuration.configuration.domain

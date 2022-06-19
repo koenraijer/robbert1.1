@@ -24,7 +24,7 @@
 <script>
     import Figure from '$lib/components/Figure.svelte'
     import {marked} from 'marked';
-    export let commercial, sm, md, lg, xl, xxl
+    export let commercial
 </script>
 <h1 class="text-4xl text-center mx-auto">{commercial.name}</h1>
 <p class="text-center sm:w-5/6 mx-auto mb-6">{@html marked(commercial.description.markdown)}</p>

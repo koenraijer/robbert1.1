@@ -1,5 +1,5 @@
 <script>
-    export let commercials, sm, md, lg, xl, xxl, clients
+    export let commercials, clients
     import Figure from "$lib/components/Figure.svelte";
 </script>
 
