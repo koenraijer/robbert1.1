@@ -1,5 +1,83 @@
+<script context="module">
+	export async function load({ url }) {
+		const currentRoute = url.pathname; 
+		return {
+			props: {
+				currentRoute
+			}
+		};
+	};
+</script>
 <script>
-  import "../app.css";
+	import '../app.css';
+	import Nav from '$lib/components/Nav.svelte';
+	import { fade } from 'svelte/transition';
+	import {menu} from '$lib/js/stores'
+	import {navigating} from '$app/stores'
+	import {config} from '$lib/js/stores'
+	export let currentRoute
+
+	$: if($navigating)
+		$menu.open = false
+	
 </script>
 
-<slot />
+<svelte:head>
+	<title>{$config.title}</title>
+	<meta name="description" content={$config.descr} />
+
+	<!--Facebook-->
+	<meta property="og:image" content={$config.OG_image} />
+	<meta property="og:description" content={$config.descr} />
+	<meta property="og:title" content={$config.title} />
+
+	<!--Twitter-->
+	<meta name="twitter:title" content={$config.title} />
+
+	<!--Favicons-->
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/favicon/site.webmanifest">
+
+	<!--GoatCounter-->
+	<script data-goatcounter="https://koenraijer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+	
+	<!--Preloading-->
+	<link rel="preload" href="/avatar2.webp" as="image"> 
+</svelte:head>
+
+<div class:overlay={$menu.open === true}></div>
+
+<Nav/>
+
+{#key currentRoute}
+<main in:fade={{ duration: 1 }} out:fade={{ duration: 1 }} class="pt-0 sm:pt-6 sm:mx-6 h-fit overflow-hidden">
+	<slot></slot>
+</main>
+{/key}
+
+<!--
+	<Navigation>
+	{#key currentRoute}
+		<main in:fade={{ duration: 300 }} out:fade={{ duration: 300 }} class="pt-0 sm:pt-6 mx-3 sm:mx-6 overflow-x-hidden">
+			<slot></slot>
+		</main>
+	{/key}
+</Navigation>
+-->
+
+<style>
+	.overlay {
+		display: block;
+		position: fixed;
+		width: 100vw;
+		height: 125vh;
+		transform: translateY(-25vh);
+		z-index: 0 !important;
+		top: 0;
+		left: 0;
+		background-color: rgba(0, 0, 0, 0.5);
+		transition: background-color 0.3s ease-in-out;
+	}
+</style>
