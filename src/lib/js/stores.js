@@ -13,6 +13,13 @@ export const config = writable({
       picture: '/assets/maskable@512.png',
     },
     svg_placeholder: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'/%3E",
+    image_sizes: {
+      sm: "640w",
+      md: "768w",
+      lg: "1024w",
+      xl: "1280w",
+      xxl: "1536w",
+    },
   })
 
 export const menu = writable({
