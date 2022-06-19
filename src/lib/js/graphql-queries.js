@@ -29,7 +29,7 @@ export const projectsQuery = gql`
 `
 
 export const projectQuery = gql`
-    query GetProject($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $slug: String!) {
+    query GetProject($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!, $slug: String!) {
         project(where: {slug: $slug}) {
             name
             slug
@@ -50,7 +50,7 @@ export const projectQuery = gql`
                     transformation: {image: {resize: {fit: clip, width: $xl}}, document: {output: {format: webp}}}
                 )
                 xxl: url(
-                    transformation: {document: {output: {format: webp}}}
+                    transformation: {image: {resize: {fit: clip, width: $xxl}}, document: {output: {format: webp}}}
                 )
                 height
                 width
@@ -89,7 +89,7 @@ export const commercialsQuery = gql`
 `
 
 export const commercialQuery = gql`
-    query GetCommercial($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $slug: String!) {
+    query GetCommercial($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!, $slug: String!) {
         commercial(where: {slug: $slug}) {
             name
             slug
@@ -110,7 +110,7 @@ export const commercialQuery = gql`
                     transformation: {image: {resize: {fit: clip, width: $xl}}, document: {output: {format: webp}}}
                 )
                 xxl: url(
-                    transformation: {document: {output: {format: webp}}}
+                    transformation: {image: {resize: {fit: clip, width: $xxl}}, document: {output: {format: webp}}}
                 )
                 height
                 width
@@ -120,7 +120,7 @@ export const commercialQuery = gql`
 `
 
 export const authorQuery = gql`
-    query GetAuthor($name: String!, $sm: Int!, $md: Int!, $lg: Int!, $xl: Int!) {
+    query GetAuthor($name: String!, $sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!) {
         author(where: {name: $name}) {
         name
         bio {
@@ -143,8 +143,8 @@ export const authorQuery = gql`
                 transformation: {image: {resize: {fit: clip, width: $xl}}, document: {output: {format: webp}}}
             )
             xxl: url(
-                transformation: {document: {output: {format: webp}}}
-            )
+                transformation: {image: {resize: {fit: clip, width: $xxl}}, document: {output: {format: webp}}}
+                )
             height
             width
         }
@@ -153,7 +153,7 @@ export const authorQuery = gql`
 `
 
 export const postsQuery = gql`
-    query GetPosts($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!) {
+    query GetPosts($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!) {
         posts {
             date
             slug
@@ -177,7 +177,7 @@ export const postsQuery = gql`
                     transformation: {image: {resize: {fit: clip, width: $xl}}, document: {output: {format: webp}}}
                 )
                 xxl: url(
-                    transformation: {document: {output: {format: webp}}}
+                    transformation: {image: {resize: {fit: clip, width: $xxl}}, document: {output: {format: webp}}}
                 )
                 height
                 width
@@ -187,7 +187,7 @@ export const postsQuery = gql`
 `
 
 export const postQuery = gql`
-query GetPost($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $slug: String!) {
+query GetPost($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!, $slug: String!) {
     post(where: {slug: $slug}) {
       slug
       date
@@ -209,7 +209,9 @@ query GetPost($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $slug: String!) {
         xl: url(
           transformation: {image: {resize: {fit: clip, width: $xl}}, document: {output: {format: webp}}}
         )
-        xxl: url(transformation: {document: {output: {format: webp}}})
+        xxl: url(
+            transformation: {image: {resize: {fit: clip, width: $xxl}}, document: {output: {format: webp}}}
+        )
         height
         width
       }
