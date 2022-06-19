@@ -1,0 +1,214 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    /* MATTER */
+    @font-face {
+        font-family: 'Matter';
+        font-display: swap;
+        src: url('/fonts/matter/Matter-Bold.eot');
+        src: local('/fonts/matter/Matter Bold'), local('/fonts/matter/Matter-Bold'),
+            url('/fonts/matter/Matter-Bold.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/matter/Matter-Bold.woff2') format('woff2'),
+            url('/fonts/matter/Matter-Bold.woff') format('woff'),
+            url('/fonts/matter/Matter-Bold.ttf') format('truetype');
+        font-weight: bold;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Matter';
+        font-display: swap;
+        src: url('/fonts/matter/Matter-BoldItalic.eot');
+        src: local('Matter Bold Italic'), local('Matter-BoldItalic'),
+            url('/fonts/matter/Matter-BoldItalic.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/matter/Matter-BoldItalic.woff2') format('woff2'),
+            url('/fonts/matter/Matter-BoldItalic.woff') format('woff'),
+            url('/fonts/matter/Matter-BoldItalic.ttf') format('truetype');
+        font-weight: bold;
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'Matter';
+        font-display: swap;
+        src: url('/fonts/matter/Matter-SemiBold.eot');
+        src: local('Matter SemiBold'), local('Matter-SemiBold'),
+            url('/fonts/matter/Matter-SemiBold.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/matter/Matter-SemiBold.woff2') format('woff2'),
+            url('/fonts/matter/Matter-SemiBold.woff') format('woff'),
+            url('/fonts/matter/Matter-SemiBold.ttf') format('truetype');
+        font-weight: 600;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Matter';
+        font-display: swap;
+        src: url('/fonts/matter/Matter-MediumItalic.eot');
+        src: local('Matter Medium Italic'), local('Matter-MediumItalic'),
+            url('/fonts/matter/Matter-MediumItalic.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/matter/Matter-MediumItalic.woff2') format('woff2'),
+            url('/fonts/matter/Matter-MediumItalic.woff') format('woff'),
+            url('/fonts/matter/Matter-MediumItalic.ttf') format('truetype');
+        font-weight: 500;
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'Matter';
+        font-display: swap;
+        src: url('/fonts/matter/Matter-Heavy.eot');
+        src: local('Matter Heavy'), local('Matter-Heavy'),
+            url('/fonts/matter/Matter-Heavy.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/matter/Matter-Heavy.woff2') format('woff2'),
+            url('/fonts/matter/Matter-Heavy.woff') format('woff'),
+            url('/fonts/matter/Matter-Heavy.ttf') format('truetype');
+        font-weight: 900;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Matter';
+        font-display: swap;
+        src: url('/fonts/matter/Matter-LightItalic.eot');
+        src: local('Matter Light Italic'), local('Matter-LightItalic'),
+            url('/fonts/matter/Matter-LightItalic.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/matter/Matter-LightItalic.woff2') format('woff2'),
+            url('/fonts/matter/Matter-LightItalic.woff') format('woff'),
+            url('/fonts/matter/Matter-LightItalic.ttf') format('truetype');
+        font-weight: 300;
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'Matter';
+        font-display: swap;
+        src: url('/fonts/matter/Matter-Medium.eot');
+        src: local('Matter Medium'), local('Matter-Medium'),
+            url('/fonts/matter/Matter-Medium.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/matter/Matter-Medium.woff2') format('woff2'),
+            url('/fonts/matter/Matter-Medium.woff') format('woff'),
+            url('/fonts/matter/Matter-Medium.ttf') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Matter';
+        font-display: swap;
+        src: url('/fonts/matter/Matter-SemiBoldItalic.eot');
+        src: local('Matter SemiBold Italic'), local('Matter-SemiBoldItalic'),
+            url('/fonts/matter/Matter-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/matter/Matter-SemiBoldItalic.woff2') format('woff2'),
+            url('/fonts/matter/Matter-SemiBoldItalic.woff') format('woff'),
+            url('/fonts/matter/Matter-SemiBoldItalic.ttf') format('truetype');
+        font-weight: 600;
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'Matter';
+        font-display: swap;
+        src: url('/fonts/matter/Matter-HeavyItalic.eot');
+        src: local('Matter Heavy Italic'), local('Matter-HeavyItalic'),
+            url('/fonts/matter/Matter-HeavyItalic.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/matter/Matter-HeavyItalic.woff2') format('woff2'),
+            url('/fonts/matter/Matter-HeavyItalic.woff') format('woff'),
+            url('/fonts/matter/Matter-HeavyItalic.ttf') format('truetype');
+        font-weight: 900;
+        font-style: italic;
+    }
+    
+    @font-face {
+        font-family: 'Matter';
+        font-display: swap;
+        src: url('/fonts/matter/Matter-Light.eot');
+        src: local('Matter Light'), local('Matter-Light'),
+            url('/fonts/matter/Matter-Light.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/matter/Matter-Light.woff2') format('woff2'),
+            url('/fonts/matter/Matter-Light.woff') format('woff'),
+            url('/fonts/matter/Matter-Light.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Matter';
+        font-display: swap;
+        src: url('/fonts/matter/Matter-Regular.eot');
+        src: local('Matter Regular'), local('Matter-Regular'),
+            url('/fonts/matter/Matter-Regular.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/matter/Matter-Regular.woff2') format('woff2'),
+            url('/fonts/matter/Matter-Regular.woff') format('woff'),
+            url('/fonts/matter/Matter-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+    }
+    
+    @font-face {
+        font-family: 'Matter';
+        font-display: swap;
+        src: url('/fonts/matter/Matter-RegularItalic.eot');
+        src: local('Matter Regular Italic'), local('Matter-RegularItalic'),
+            url('/fonts/matter/Matter-RegularItalic.eot?#iefix') format('embedded-opentype'),
+            url('/fonts/matter/Matter-RegularItalic.woff2') format('woff2'),
+            url('/fonts/matter/Matter-RegularItalic.woff') format('woff'),
+            url('/fonts/matter/Matter-RegularItalic.ttf') format('truetype');
+        font-weight: normal;
+        font-style: italic;
+    }
+}
+
+@layer components {
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-header text-primary
+    }
+
+    h1, .prose h1 {
+        @apply text-4xl font-semibold
+    }
+}
+
+@layer utilities {
+    /* Title */
+    .capitalize.font-semibold.text-xl.w-fit.title {
+        line-height: .9;
+    }
+
+    /* Navbar menu */
+    .navbar {
+        @apply p-0;
+    }
+        /* Make it unsticky */
+        .drawer {
+            display: grid;
+            width: 100%;
+            overflow: auto;
+            height: auto;
+            height: 100svh;
+        }
+
+    .navbar-content > :where(li) > :where(:not(ul)) {
+        @apply hover:bg-transparent hover:scale-110 hover:w-fit;
+    }
+
+    .sidebar-content > :where(li) > :where(:not(ul)) {
+        @apply hover:bg-transparent hover:scale-105;
+    }
+
+    .sidebar-content > :where(li) > :where(ul) > :where(li) {
+        @apply hover:bg-transparent hover:scale-105;
+    }
+    
+    /* Sidebar menu */
+    .menu > :where(li) > :where(ul) {
+        position: relative;
+        display: block;
+        top: initial;
+        left: 1rem;
+    }
+
+}
