@@ -11,7 +11,7 @@ const config = {
 			  ...require("daisyui/src/colors/themes")["[data-theme=light]"],
 			  primary: "#00401F",
 			  secondary: "#cc8500",
-			  secondaryFocus: "cc8500",
+			  secondaryFocus: "#AF7200",
 			  "--navbar-padding": "1rem"
 			},
 		  },
@@ -21,7 +21,7 @@ const config = {
 	theme: {
 		extend: {
 			fontFamily: {
-				header: [`'Matter'`, ...defaultTheme.fontFamily.sans,]
+				header: [`'Helvetica'`, ...defaultTheme.fontFamily.sans,]
 			},
 		}
 	},

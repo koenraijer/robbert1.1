@@ -11,6 +11,7 @@
 <script>
 	import '../app.css';
 	import Nav from '$lib/components/Nav.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	import { fade } from 'svelte/transition';
 	import {menu} from '$lib/js/stores'
 	import {navigating} from '$app/stores'
@@ -52,11 +53,12 @@
 <Nav/>
 
 {#key currentRoute}
-<main in:fade={{ duration: 1 }} out:fade={{ duration: 1 }} class="pt-0 sm:pt-6 sm:mx-6 h-fit overflow-hidden">
+<main in:fade={{ duration: 1 }} out:fade={{ duration: 1 }} class="pt-0 sm:pt-6 mx-2 sm:mx-6 h-fit overflow-hidden">
 	<slot></slot>
 </main>
 {/key}
 
+<Footer/>
 <!--
 	<Navigation>
 	{#key currentRoute}
@@ -74,7 +76,7 @@
 		width: 100vw;
 		height: 125vh;
 		transform: translateY(-25vh);
-		z-index: 0 !important;
+		z-index: 50 !important;
 		top: 0;
 		left: 0;
 		background-color: rgba(0, 0, 0, 0.5);

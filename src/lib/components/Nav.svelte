@@ -8,14 +8,9 @@
     import Title from '$lib/components/Title.svelte'
     import {menu} from '$lib/js/stores'
     import {clickOutside} from '$lib/js/utils'
-    import { onMount } from 'svelte';
-
-    let data = [];
-
-    onMount( async () => {
-        data = await fetch('../api/config_nav.json').then(res => res.json()).then(data => data = data)
-    })
-
+    import Navlink from '$lib/components/Navlink.svelte'
+    import {nav_items} from '$lib/js/stores'
+    
     const navigation = [
         {
             title: 'Portfolio',
@@ -74,16 +69,16 @@
                     <li class="pr-6 dropdown dropdown-hover">
                         <!-- svelte-ignore a11y-label-has-associated-control -->
                         <label tabindex="0" class="">
-                            <a sveltekit:prefetch href={item.url} tabindex="0" class="">{item.title}</a>
+                            <Navlink href={item.url}>{item.title}</Navlink>
                         </label>
                         <ul tabindex="0" class="menu dropdown-content w-fit !top-full">
                             {#each item.navigation as sub_item}
-                                <li><a sveltekit:prefetch href={sub_item.url}>{sub_item.title}</a></li>
+                                <li><Navlink href={sub_item.url}>{sub_item.title}</Navlink></li>
                             {/each}
                         </ul>
                     </li>
                 {:else}
-                    <li class="pr-6"><a sveltekit:prefetch href={item.url}>{item.title}</a></li>
+                    <li class="pr-6"><Navlink href={item.url}>{item.title}</Navlink></li>
                 {/if}
             {/each}
           </ul>
@@ -97,7 +92,7 @@
 
 <!--Sidebar content-->
 {#if open}
-<aside in:fly="{{ x: 100, duration: 300 }}" out:fly="{{ x: 100, duration: 300 }}" class="bg-base-100 fixed {open ? "right-0" : "-right-full"} lg:hidden w-full md:w-2/6 h-screen top-0 p-4 sm:p-6 py-6">
+<aside in:fly="{{ x: 100, duration: 300 }}" out:fly="{{ x: 100, duration: 300 }}" class="bg-base-100 fixed {open ? "right-0" : "-right-full"} lg:hidden w-full md:w-2/6 h-screen top-0 p-4 sm:p-6 py-6 !z-50">
 
     <!-- Sidebar header -->
     <div class="flex flex-row row-nowrap justify-between mb-4">
@@ -116,30 +111,20 @@
             {#if item.navigation}
                 <li class="pb-2">
                     <!-- svelte-ignore a11y-label-has-associated-control -->
-                    <a sveltekit:prefetch href={item.url}>{item.title}</a>
+                    <Navlink href={item.url}>{item.title}</Navlink>
                     <ul class="pl-4 pt-2">
                         {#each item.navigation as sub_item}
-                            <li class="pb-2"><a sveltekit:prefetch href={sub_item.url}>{sub_item.title}</a></li>
+                            <li class="pb-2 !gap-0 !p-0"><Navlink css="!gap-0 !p-0" href={sub_item.url}>{sub_item.title}</Navlink></li>
                         {/each}
                     </ul>
                 </li>
             {:else}
-                <li class="pb-2"><a sveltekit:prefetch href={item.url}>{item.title}</a></li>
+                <li class="pb-2"><Navlink href={item.url}>{item.title}</Navlink></li>
             {/if}
         {/each}
     </ul>
 </aside>
 {/if}
-
-<style>
-    .menu :where(li) > :where(:not(ul)) {
-        @apply p-0 gap-0 pb-2
-    }
-
-    .menu :where(li:not(.menu-title):not(:empty)) > :where(:not(ul):focus), .menu :where(li:not(.menu-title):not(:empty)) > :where(:not(ul):hover) {
-        @apply bg-transparent
-    }
-</style>
 
 <!--
   {

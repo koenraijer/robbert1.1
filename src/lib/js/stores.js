@@ -26,5 +26,5 @@ export const menu = writable({
   open: false
 })
 
-export const nav = writable()
+export const nav_items = writable()
   // https://codepen.io/shshaw/post/responsive-placeholder-image
