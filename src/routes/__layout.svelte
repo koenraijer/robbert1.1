@@ -10,6 +10,7 @@
 </script>
 <script>
 	import '../app.css';
+	import {browser} from '$app/env'
 	import Nav from '$lib/components/Nav.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { fade } from 'svelte/transition';
@@ -21,6 +22,22 @@
 	$: if($navigating)
 		$menu.open = false
 	
+	let scroll_up;
+	let page_offset;
+	let old_page_offset;
+
+	if(browser) {
+		window.addEventListener('scroll', (e) => {
+			page_offset = window.pageYOffset;
+			if (old_page_offset < page_offset) {
+				scroll_up = false;
+			} else if (old_page_offset > page_offset) {
+				scroll_up = true;
+			}
+			old_page_offset = page_offset;
+			});
+	}
+
 </script>
 
 <svelte:head>
@@ -50,7 +67,7 @@
 <div class:overlay={$menu.open === true}></div>
 
 <div class="flex flex-col min-h-screen">
-	<Nav/>
+	<Nav {scroll_up} {page_offset} />
 
 	{#key currentRoute}
 	<main in:fade={{ duration: 150 }} out:fade={{ duration: 150 }} class="pt-0 sm:pt-6 mx-2 sm:mx-6 h-fit overflow-hidden max-w-screen flex-grow">
@@ -77,7 +94,7 @@
 		width: 100vw;
 		height: 125vh;
 		transform: translateY(-25vh);
-		z-index: 50 !important;
+		z-index: 51 !important;
 		top: 0;
 		left: 0;
 		background-color: rgba(0, 0, 0, 0.5);

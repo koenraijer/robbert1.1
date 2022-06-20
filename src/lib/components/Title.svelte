@@ -2,6 +2,8 @@
     import {config} from '$lib/js/stores'
     import {onMount} from 'svelte'
     
+    export let scroll_up, page_offset;
+
     let first_name_chars = []
     let last_name_chars = []
     onMount(() => {
@@ -20,7 +22,7 @@
     })  
 </script>
 
-<h1 class="capitalize font-[600] text-xl w-fit title text-primary">
+<h1 class="capitalize font-[600] {scroll_up && page_offset > 60 ? "text-lg !leading-6" : "text-xl"} w-fit title text-primary h-fit">
     <span class="flex flex-row justify-between">
         {#each first_name_chars as char}
             <span>{char}</span>

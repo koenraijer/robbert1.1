@@ -1,16 +1,12 @@
 <script>
+    export let scroll_up, page_offset;
 
-    /* Navbar menu content here
-        - Title always links to first menu item
-    */
-
-    import {fly} from 'svelte/transition'
+    import {fly, fade} from 'svelte/transition'
     import Title from '$lib/components/Title.svelte'
     import {menu} from '$lib/js/stores'
     import {clickOutside} from '$lib/js/utils'
     import Navlink from '$lib/components/Navlink.svelte'
-    import {nav_items} from '$lib/js/stores'
-    
+
     const navigation = [
         {
             title: 'Portfolio',
@@ -52,18 +48,67 @@
         if(open)
             return open = !open;
     }
+
+    function horzSlideTransition(node, { duration }) {
+        return {
+        duration,
+        css: (t) => {
+            // This always slides in from the right.
+            const eased = 1 - cubicOut(t);
+            return `transform: translateX(${eased * 100}%)`;
+        },
+        };
+    }
 </script>
 
-<nav use:clickOutside on:click_outside={handle_click} class="m-4 sm:m-6 pt-0 pb-0 flex flex-row flex-nowrap justify-between place-items-center !z-100">
+{#if scroll_up && page_offset > 60}
+    <nav in:fade="{{ duration: 100 }}" out:fade="{{ duration: 100 }}" use:clickOutside on:click_outside={handle_click} class="p-4 sm:p-6 py-2 sm:py-4 flex flex-row flex-nowrap justify-between place-items-center !z-100 {scroll_up && page_offset > 60 ? "fixed w-full bg-white !z-50 top-0" : "hidden"}">
+        <!-- Navbar content -->
+            <!-- Title -->
+            <div class="w-fit">
+                <a href="{navigation[0].url}"><Title {scroll_up} {page_offset}/></a>
+            </div>
+
+            <!-- Menu items -->
+            <div class="hidden lg:block text-sm">
+            <ul class="flex flex-row row-nowrap justify-start">
+                {#each navigation as item}
+                    {#if item.navigation}
+                        <li class="pr-6 dropdown dropdown-hover">
+                            <!-- svelte-ignore a11y-label-has-associated-control -->
+                            <label tabindex="0" class="">
+                                <Navlink href={item.url}>{item.title}</Navlink>
+                            </label>
+                            <ul tabindex="0" class="menu dropdown-content w-fit !top-full">
+                                {#each item.navigation as sub_item}
+                                    <li><Navlink href={sub_item.url}>{sub_item.title}</Navlink></li>
+                                {/each}
+                            </ul>
+                        </li>
+                    {:else}
+                        <li class="pr-6"><Navlink href={item.url}>{item.title}</Navlink></li>
+                    {/if}
+                {/each}
+            </ul>
+            </div>
+
+            <!-- Hamburger icon -->
+            <button class="lg:hidden hover:stroke-primary hover:cursor-pointer" on:click={() => open = !open}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+    </nav>
+{/if}
+
+<nav use:clickOutside on:click_outside={handle_click} class="p-4 sm:p-6 flex flex-row flex-nowrap justify-between place-items-center !z-100">
     <!-- Navbar content -->
         <!-- Title -->
         <div class="w-fit">
-            <a href="{navigation[0].url}"><Title/></a>
+            <a href="{navigation[0].url}"><Title {scroll_up} {page_offset}/></a>
         </div>
 
         <!-- Menu items -->
         <div class="hidden lg:block text-sm">
-          <ul class="flex flex-row row-nowrap justify-start">
+        <ul class="flex flex-row row-nowrap justify-start">
             {#each navigation as item}
                 {#if item.navigation}
                     <li class="pr-6 dropdown dropdown-hover">
@@ -81,7 +126,7 @@
                     <li class="pr-6"><Navlink href={item.url}>{item.title}</Navlink></li>
                 {/if}
             {/each}
-          </ul>
+        </ul>
         </div>
 
         <!-- Hamburger icon -->
@@ -92,7 +137,7 @@
 
 <!--Sidebar content-->
 {#if open}
-<aside in:fly="{{ x: 100, duration: 300 }}" out:fly="{{ x: 100, duration: 300 }}" class="bg-base-100 fixed {open ? "right-0" : "-right-full"} lg:hidden w-full md:w-2/6 h-screen top-0 p-4 sm:p-6 py-6 !z-50">
+<aside in:fly="{{ x: 100, duration: 300 }}" out:fly="{{ x: 100, duration: 300 }}" class="bg-base-100 fixed {open ? "right-0" : "-right-full"} lg:hidden w-full md:w-2/6 h-screen top-0 p-4 sm:p-6 !z-[52]">
 
     <!-- Sidebar header -->
     <div class="flex flex-row row-nowrap justify-between mb-4">

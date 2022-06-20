@@ -66,4 +66,11 @@
 - Make caching longer
 - Add imagesizes to Figure component
 
+Check this out:
+- Afbeeldingen laden bij het wisselen van pagina is merkbaar sneller (n.a.v. van wat je zei over de foto op de aboutpagina. De techniek die dat versnelt zorgt er nu ook op alle andere pagina's voor dat de bovenste afbeelding eerder geladen wordt).
+- Footer is toegevoegd
+- Design van het menu lijkt meer op waar je om vroeg (kleuren, alles in hoofdletters, actieve link oranje)
+- Het 'hover' effect van de projecten op de homepage lijkt nu meer op waar je om vroeg (tekst in hoofdletters linksonder, fade to black ipv wit)
+- Bij de projectpagina's kun je nu in GraphCMS zelf de volgorde bepalen
+- Portretfoto's in projecten nemen nu de helft van de breedte in beslag (kijk bijvoorbeeld op de projectpagina van Landscape)
 
