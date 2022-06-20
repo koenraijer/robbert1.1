@@ -59,18 +59,11 @@
 - 404
 
 ### PM
-- Also query width and height to add aspect ratio's and prevent unwanted layout shifting.
-- Query author in config and add that to store to minimize API calls. 
-- Bug: when switching from product to wedding, the images don't change. (https://stackoverflow.com/questions/68921960/sveltekit-component-is-not-being-rendered-second-time-though-the-url-has-been-c)
-- Use mutations API to make contact form.
-- Add nav menu to GraphCMS
+- Use mutations API to make contact form. Then use GraphCMS webhooks to listen for new submissions, and use anothe API route forward that onto a service of your chocie, such as email, Slack or Zapier. 
 - Use blurred low quality images as placeholders.
-- Fetch config/menu info in __layout from a general endpoint. This ensures that even when users navigate to a page other than the homepage, all relevant data is fetched (but only once, and then stored in a store)
 - Use of i as index for figures doesn't seem to switch between lazy and eager loading. 
-
-## NOW:
-- Project pages
-
-Author info: let's fetch from layout page and then store all config info in store. 
+- Prefetch first image for every page in the <head>
+- Make caching longer
+- Add imagesizes to Figure component
 
 

@@ -45,17 +45,16 @@
 	<script data-goatcounter="https://koenraijer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 	
 	<!--Preloading-->
-	<link rel="preload" href="/avatar2.webp" as="image"> 
 </svelte:head>
 
 <div class:overlay={$menu.open === true}></div>
 
-<div class="flex flex-col overflow-x-hidden min-h-screen">
+<div class="flex flex-col min-h-screen">
 	<Nav/>
 
 	{#key currentRoute}
-	<main in:fade={{ duration: 1 }} out:fade={{ duration: 1 }} class="pt-0 sm:pt-6 mx-2 sm:mx-6 h-fit overflow-hidden flex-grow">
-		<slot></slot>
+	<main in:fade={{ duration: 150 }} out:fade={{ duration: 150 }} class="pt-0 sm:pt-6 mx-2 sm:mx-6 h-fit overflow-hidden max-w-screen flex-grow">
+			<slot></slot>
 	</main>
 	{/key}
 

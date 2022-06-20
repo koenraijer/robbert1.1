@@ -1,9 +1,13 @@
 <script>
     export let posts;
     import Figure from '$lib/components/Figure.svelte'
+    import {config} from '$lib/js/stores'
 </script>
 
-<!--<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 h-full">-->
+<svelte:head>
+    <link rel="preload" as="image" href="{posts[0].coverImage.xxl}" imagesrcset="{posts[0].coverImage.sm} {$config.image_sizes.sm}, {posts[0].coverImage.md} {$config.image_sizes.md}, {posts[0].coverImage.xl} {$config.image_sizes.xl}, {posts[0].coverImage.xxl} {$config.image_sizes.xxl}" imagesizes="50vw">
+</svelte:head>
+
 <div class="prose mx-auto text-base prose-headings:font-[500]">
     <h1 class="text-left mx-auto w-screen">Blog</h1>
     {#each posts as {title, date, slug, coverImage, snippet}, i} 
@@ -15,24 +19,3 @@
         </a>
     {/each}
 </div>
-
-<!--
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-6">
-    {#each posts as post, i} 
-        <a sveltekit:prefetch class="group grid place-items-center w-full h-full pb-3 sm:pb-6" href="/commercial/{post.slug}">
-            <img    
-                    class="row-start-1 col-start-1 aspect-auto transition-opacity group-hover:opacity-50 w-full h-full" 
-                    alt="{post.name}" 
-                    data-srcset="{post.coverImage.sm} {sm + "w"}, {post.coverImage.md} {md + "w"}, {post.coverImage.lg} {lg + "w"}, {post.coverImage.xl} {xl + "w"}, {post.coverImage.xxl} {xxl + "w"}" 
-                    srcset="{base64pixel}"
-                    data-src="{post.coverImage.xxl}"
-                    src="{base64pixel}"
-                    use:useLazyImage={{ threshold: 0}} 
-                    decoding={i < 1 ? "auto" : "async"} 
-                    loading={i < 1 ? "eager" : "lazy"}
-            />
-            <h2 class="row-start-1 col-start-1 p-4 text-xl invisible group-hover:visible">{post.title} - {post.date}</h2>
-        </a>
-    {/each}
-</div>
--->
