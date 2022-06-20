@@ -1,8 +1,3 @@
-<script context="module">
-    export async function load({page}) {
-        
-    }
-</script>
 <script>
     import Figure from '$lib/components/Figure.svelte'
     export let projects
