@@ -20,7 +20,7 @@
     })  
 </script>
 
-<h1 class="capitalize font-[500] text-xl w-fit title text-primary">
+<h1 class="capitalize font-[600] text-xl w-fit title text-primary">
     <span class="flex flex-row justify-between">
         {#each first_name_chars as char}
             <span>{char}</span>

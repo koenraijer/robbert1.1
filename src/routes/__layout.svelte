@@ -50,15 +50,17 @@
 
 <div class:overlay={$menu.open === true}></div>
 
-<Nav/>
+<div class="flex flex-col overflow-x-hidden min-h-screen">
+	<Nav/>
 
-{#key currentRoute}
-<main in:fade={{ duration: 1 }} out:fade={{ duration: 1 }} class="pt-0 sm:pt-6 mx-2 sm:mx-6 h-fit overflow-hidden">
-	<slot></slot>
-</main>
-{/key}
+	{#key currentRoute}
+	<main in:fade={{ duration: 1 }} out:fade={{ duration: 1 }} class="pt-0 sm:pt-6 mx-2 sm:mx-6 h-fit overflow-hidden flex-grow">
+		<slot></slot>
+	</main>
+	{/key}
 
-<Footer/>
+	<Footer/>
+</div>
 <!--
 	<Navigation>
 	{#key currentRoute}

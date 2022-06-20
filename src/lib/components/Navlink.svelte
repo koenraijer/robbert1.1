@@ -10,10 +10,15 @@
   
   <style>
     a.active {
-      @apply text-secondary-focus font-semibold
+      @apply text-secondary-focus;
+      text-shadow: -0.04ex 0 currentColor, 0.04ex 0 currentColor;
     }
 
     a {
         @apply bg-transparent uppercase
+    }
+
+    a:hover {
+        @apply text-secondary;
     }
   </style>

@@ -3,10 +3,9 @@
     import Figure from '$lib/components/Figure.svelte'
 </script>
 
-<div class="prose-headings:font-[500] prose mb-6">
-    <h1 class="text-center mx-auto w-screen">Blog</h1>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 h-full">
+<!--<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 h-full">-->
+<div class="prose mx-auto text-base prose-headings:font-[500]">
+    <h1 class="text-left mx-auto w-screen">Blog</h1>
     {#each posts as {title, date, slug, coverImage, snippet}, i} 
         <a sveltekit:prefetch class="pb-3 h-fit" href="/blog/{slug}">
             <Figure css="pb-2 mb-0 object-cover !aspect-video" alt={title} img={coverImage} sm md lg xl xxl width={coverImage.width} height={coverImage.height} i/>
