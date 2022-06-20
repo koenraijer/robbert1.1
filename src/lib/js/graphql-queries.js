@@ -24,6 +24,7 @@ export const projectsQuery = gql`
             }
             slug
             name
+            index
         }
     }
 `
