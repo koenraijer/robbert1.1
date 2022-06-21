@@ -1,24 +1,60 @@
 <script>
 	import {autoresize} from 'svelte-textarea-autoresize'
+	import {goto} from '$app/navigation'
+	import {fade} from 'svelte/transition'
+	let name, email, message;
+	let show_success_message = false; 
+	let show_user_instructions = false;
+	let user_instructions
+	async function submit_form() {
+		console.log('function called')
+		const res = await fetch('./api/send_message.json', {
+			method: 'POST',
+			body: JSON.stringify({name: name, email: email, message: message})
+		})
+		if(res.ok) {
+			show_success_message = true;
+			name = ""
+			email = ""
+			message = ""
+		}
+		if (!res.ok) {
+			const response = await res.text()
+			show_user_instructions = true
+			user_instructions = response
+		}
+	} 
+      
+	
 </script>
 
 <div class="prose mx-auto">
     <h1 class="p-0 m-0">Contact</h1>
     <p class="pb-6">Leave a message and I'll get back to you as soon as possible!</p>
-	<form>
+	<form method="POST">
 		<div class="relative z-0 mb-8 w-full group">
-			<input type="text" name="floating_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-focus peer" placeholder=" " required />
+			<input bind:value={name} type="text" name="floating_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-focus peer" placeholder=" " required />
 			<label for="floating_name" class="absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
 		</div>
 		<div class="relative z-0 mb-8 w-full group">
-			<input type="email" name="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-focus peer" placeholder=" " required />
+			<input bind:value={email} type="email" name="floating_email" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-focus peer" placeholder=" " required />
 			<label for="floating_email" class="absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
 		</div>
         <div class="relative z-0 mb-6 w-full group">
-			<textarea use:autoresize type="text" name="floating_message" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-focus peer" placeholder=" " required />
+			<textarea bind:value={message} use:autoresize type="text" name="floating_message" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-focus peer" placeholder=" " required />
 			<label for="floating_message" class="absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Message</label>
 		</div>
-		<button type="submit" class="btn btn-outline btn-primary">Submit</button>
+		<button on:click|preventDefault={submit_form} type="submit" class="btn btn-outline btn-primary">Submit</button>
+		{#if show_success_message}
+			<span>You've successfully submitted the message!</span>
+		{:else if show_user_instructions}
+			<span>{user_instructions}</span>
+		{/if}
 	</form>
 </div>
 
+<!--
+	- Capture form values on contact page. 
+	- POST request to `send_message.js` with form values as params_obj.Contact
+	- Inside `send_message.js`, decode params_obj, then use `messageQuery` to create a new message.
+-->

@@ -221,6 +221,14 @@ query GetPost($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!, $slug: Str
   }
 `
 
+export const messageQuery = gql`
+    mutation createMessage($name: String!, $email: String!, $message: String!) {
+        createContact(data: {name: $name, email: $email, message: $message}) {
+          id
+        }
+    }
+`
+
 export const clientsQuery = gql`
     query GetClients($width: Int!) {
         clients {
@@ -255,3 +263,4 @@ export const navQuery = gql`
         }
     }
 `
+
