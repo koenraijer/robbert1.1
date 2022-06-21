@@ -85,6 +85,7 @@ export const commercialsQuery = gql`
             description {
                 markdown
             }
+            index
         }
     }
 `

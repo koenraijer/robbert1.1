@@ -48,17 +48,6 @@
         if(open)
             return open = !open;
     }
-
-    function horzSlideTransition(node, { duration }) {
-        return {
-        duration,
-        css: (t) => {
-            // This always slides in from the right.
-            const eased = 1 - cubicOut(t);
-            return `transform: translateX(${eased * 100}%)`;
-        },
-        };
-    }
 </script>
 
 {#if scroll_up && page_offset > 60}

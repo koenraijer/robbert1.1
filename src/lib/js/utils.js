@@ -16,7 +16,7 @@ export function useLazyImage(
                             if (image.dataset.srcset) {
                                 image.srcset = image.dataset.srcset;
                             }
-
+                            node.setAttribute("Seen", "seen")
                             observer.unobserve(image);
                         }
                     });

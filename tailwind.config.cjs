@@ -23,6 +23,13 @@ const config = {
 			fontFamily: {
 				header: [`'Helvetica'`, ...defaultTheme.fontFamily.sans,]
 			},
+			typography: (theme) => ({
+				DEFAULT: {
+				  css: {
+					// ... customize typography plugin here
+				  },
+				},
+			}),
 		}
 	},
 

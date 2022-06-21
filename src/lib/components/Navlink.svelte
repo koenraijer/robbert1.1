@@ -19,6 +19,6 @@
     }
 
     a:hover {
-        @apply text-secondary;
+        @apply text-secondary transition-colors;
     }
   </style>

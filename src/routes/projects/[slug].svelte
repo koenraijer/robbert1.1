@@ -37,7 +37,7 @@
 
 <div class="grid grid-cols-2 grid-flow-dense gap-3 sm:gap-6">
     {#each project.image as image, i}
-        <Figure css="{image.width > image.height ? "col-span-2 lg:max-h-[95vh]" : "col-span-1 lg:max-h-full"}" alt={project.name} img={image} sm md lg xl xxl width={image.width} height={image.height} i/>
+        <Figure css="{image.width > image.height ? "col-span-2 lg:max-h-[95vh]" : "col-span-1 lg:max-h-full"}" alt={project.name} img={image} width={image.width} height={image.height} i={i}/>
     {/each}
 </div>
 

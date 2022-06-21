@@ -36,6 +36,6 @@
 <h1 class="text-4xl text-center mx-auto">{commercial.name}</h1>
 <p class="text-center sm:w-5/6 mx-auto mb-6">{@html marked(commercial.description.markdown)}</p>
 {#each commercial.image as image, i}
-    <Figure css="transition-opacity group-hover:opacity-50 pb-6" alt={commercial.name} img={image} sm md lg xl xxl width={image.width} height={image.height} i/>
+    <Figure css="transition-opacity group-hover:opacity-50 pb-6" alt={commercial.name} img={image} sm md lg xl xxl width={image.width} height={image.height} i={i}/>
 {/each}
 
