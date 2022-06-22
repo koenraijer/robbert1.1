@@ -11,7 +11,7 @@
         } else {
             j += 1
         }
-    }, 2000);
+    }, 5000);
 
     commercials.sort(function(a,b) {
         return a.index > b.index;
@@ -35,8 +35,10 @@
 
 <div class="flex flex-row flex-nowrap justify-between max-w-screen">
     {#each clients_grouped as clients_group}
-        {#key j}
-            <img in:fly="{{ y: -100, duration: 300, delay: 500 }}" out:fly="{{ y: 100, duration: 300 }}" class="p-3 sm:p-6 object-contain aspect-auto max-h-32"src={clients_group[j].logo.url} alt={clients_group[j].name}>
-        {/key}
+        <div class="grid">
+            {#key j}
+                <img in:fly="{{ y: -100, duration: 300, delay: 750 }}" out:fly="{{ y: 100, duration: 300 }}" class="p-3 sm:p-6 object-contain aspect-auto h-24 col-start-1 row-start-1 col-span-1 row-span-1" src={clients_group[j].logo.url} alt={clients_group[j].name}>
+            {/key}
+        </div>
     {/each}
 </div>
