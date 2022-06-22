@@ -63,19 +63,19 @@
             <ul class="flex flex-row row-nowrap justify-start">
                 {#each navigation as item}
                     {#if item.navigation}
-                        <li class="pr-6 dropdown dropdown-hover">
+                        <li class="pr-4 pl-2 dropdown dropdown-hover">
                             <!-- svelte-ignore a11y-label-has-associated-control -->
                             <label tabindex="0" class="">
                                 <Navlink href={item.url}>{item.title}</Navlink>
                             </label>
-                            <ul tabindex="0" class="menu dropdown-content w-fit !top-full">
+                            <ul tabindex="0" class="menu dropdown-content !top-full pl-2 bg-white w-5/6 shadow-md rounded-md">
                                 {#each item.navigation as sub_item}
                                     <li><Navlink href={sub_item.url}>{sub_item.title}</Navlink></li>
                                 {/each}
                             </ul>
                         </li>
                     {:else}
-                        <li class="pr-6"><Navlink href={item.url}>{item.title}</Navlink></li>
+                        <li class="pr-4 pl-2"><Navlink href={item.url}>{item.title}</Navlink></li>
                     {/if}
                 {/each}
             </ul>
@@ -105,14 +105,14 @@
                         <label tabindex="0" class="">
                             <Navlink href={item.url}>{item.title}</Navlink>
                         </label>
-                        <ul tabindex="0" class="menu dropdown-content w-fit !top-full">
+                        <ul tabindex="0" class="menu dropdown-content !top-full pl-2 bg-white w-5/6 shadow-md rounded-md">
                             {#each item.navigation as sub_item}
                                 <li><Navlink href={sub_item.url}>{sub_item.title}</Navlink></li>
                             {/each}
                         </ul>
                     </li>
                 {:else}
-                    <li class="pr-6"><Navlink href={item.url}>{item.title}</Navlink></li>
+                    <li class="pr-4 pl-2"><Navlink href={item.url}>{item.title}</Navlink></li>
                 {/if}
             {/each}
         </ul>

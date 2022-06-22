@@ -35,9 +35,9 @@
 <h1 class="text-xl font-normal text-center uppercase mx-auto my-4">{project.name}</h1>
 <p class="text-center text-sm sm:w-5/6 mx-auto mb-6 sm:mb-12">{@html marked(project.description.markdown)}</p>
 
-<div class="grid grid-cols-2 grid-flow-dense gap-3 sm:gap-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 grid-flow-dense gap-3 sm:gap-6">
     {#each project.image as image, i}
-        <Figure css="{image.width > image.height ? "col-span-2 lg:max-h-[95vh]" : "col-span-1 lg:max-h-full"}" alt={project.name} img={image} width={image.width} height={image.height} i={i}/>
+        <Figure css="{image.width > image.height ? "col-span-2 lg:max-h-[95vh]" : "col-span-2 sm:col-span-1 lg:max-h-full"}" alt={project.name} img={image} width={image.width} height={image.height} i={i}/>
     {/each}
 </div>
 
