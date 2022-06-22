@@ -126,10 +126,10 @@
 
 <!--Sidebar content-->
 {#if open}
-<aside in:fly="{{ x: 100, duration: 300 }}" out:fly="{{ x: 100, duration: 300 }}" class="bg-base-100 fixed {open ? "right-0" : "-right-full"} lg:hidden w-full md:w-2/6 h-screen top-0 p-4 sm:p-6 !z-[52]">
+<aside in:fly="{{ x: 100, duration: 300 }}" out:fly="{{ x: 100, duration: 300 }}" class="bg-base-100 fixed {open ? "right-0" : "-right-full"} lg:hidden w-full md:w-2/6 md:text-left text-center h-screen top-0 p-4 sm:p-6 !z-[52]">
 
     <!-- Sidebar header -->
-    <div class="flex flex-row row-nowrap justify-between mb-4">
+    <div class="flex flex-row row-nowrap justify-between mb-8">
         <a sveltekit:prefetch href="{navigation[0].url}"><Title/></a>
 
         <button on:click={() => open = false} class="hover:stroke-primary hover:cursor-pointer">
@@ -146,7 +146,7 @@
                 <li class="pb-2">
                     <!-- svelte-ignore a11y-label-has-associated-control -->
                     <Navlink href={item.url}>{item.title}</Navlink>
-                    <ul class="pl-4 pt-2">
+                    <ul class="pl-4 pt-2 text-base">
                         {#each item.navigation as sub_item}
                             <li class="pb-2 !gap-0 !p-0"><Navlink css="!gap-0 !p-0" href={sub_item.url}>{sub_item.title}</Navlink></li>
                         {/each}

@@ -58,4 +58,8 @@
 	- Capture form values on contact page. 
 	- POST request to `send_message.js` with form values as params_obj.Contact
 	- Inside `send_message.js`, decode params_obj, then use `messageQuery` to create a new message.
+
+	TO SEND IT BY EMAIL:
+	- Configure webhook in GraphCMS that triggers when new draft Contact entry is received.
+	- Send that webhook as a POST request to an endpoint. From there, use https://vercel.com/docs/concepts/solutions/email to send the email. 
 -->
