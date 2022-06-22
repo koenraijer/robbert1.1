@@ -18,9 +18,6 @@ const client = new GraphQLClient(GRAPHQL_ENDPOINT, {
 
 export async function post({request}) {
     const params = await request.json()
-    const name = "Koen"
-    const email = "koenrayer@gmail.com"
-    const message = "LATES MESSAGE!"
 
     variables = {name: params.name, email: params.email, message: params.message}
 
@@ -42,7 +39,7 @@ export async function post({request}) {
     } catch (error) {
       return {
         status: 500,
-        body: error.response.errors[0].message
+        body: error.response.errors[0].message + error.response.status
       }
     } 
 }

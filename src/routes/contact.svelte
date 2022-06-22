@@ -6,8 +6,8 @@
 	let show_success_message = false; 
 	let show_user_instructions = false;
 	let user_instructions
+
 	async function submit_form() {
-		console.log('function called')
 		const res = await fetch('./api/send_message.json', {
 			method: 'POST',
 			body: JSON.stringify({name: name, email: email, message: message})
@@ -20,6 +20,7 @@
 		}
 		if (!res.ok) {
 			const response = await res.text()
+			console.log(response)
 			show_user_instructions = true
 			user_instructions = response
 		}

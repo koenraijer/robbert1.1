@@ -2,10 +2,24 @@
     export let commercials, clients
     import Figure from "$lib/components/Figure.svelte";
     import {config} from '$lib/js/stores'
+    import {fade, fly} from 'svelte/transition'
+    let j = 0;
+
+    setInterval(() => {
+        if(j >= 2) {
+            j = 0
+        } else {
+            j += 1
+        }
+    }, 2000);
 
     commercials.sort(function(a,b) {
         return a.index > b.index;
     })
+
+    const nums_per_group = Math.ceil(clients.length / 3);
+    const clients_grouped = new Array(3).fill('').map((_, i) => clients.slice(i * nums_per_group, (i + 1) * nums_per_group));
+
 </script>
 
 <svelte:head>
@@ -20,7 +34,9 @@
 {/each}
 
 <div class="flex flex-row flex-nowrap justify-between max-w-screen">
-    {#each clients as {name, logo}}
-        <img class="p-3 sm:p-6 object-contain aspect-auto max-h-32"src={logo.url} alt={name}>
+    {#each clients_grouped as clients_group}
+        {#key j}
+            <img in:fly="{{ y: -100, duration: 300, delay: 500 }}" out:fly="{{ y: 100, duration: 300 }}" class="p-3 sm:p-6 object-contain aspect-auto max-h-32"src={clients_group[j].logo.url} alt={clients_group[j].name}>
+        {/key}
     {/each}
 </div>

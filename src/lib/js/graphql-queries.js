@@ -230,13 +230,11 @@ export const messageQuery = gql`
 `
 
 export const clientsQuery = gql`
-    query GetClients($width: Int!) {
+    query GetClients {
         clients {
         name
         logo {
-            url(
-                transformation: {image: {resize: {fit: clip, width: $width}}, document: {output: {format: webp}}}
-            )
+            url
             }
         }
     } 
