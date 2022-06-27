@@ -60,7 +60,9 @@
 
 	<!--GoatCounter-->
 	<script data-goatcounter="https://koenraijer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet"> 
 	<!--Preloading-->
 </svelte:head>
 

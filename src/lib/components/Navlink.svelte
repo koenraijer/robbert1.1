@@ -10,12 +10,12 @@
   
   <style>
     a.active {
-      @apply text-secondary-focus;
+      @apply text-secondary;
       text-shadow: -0.04ex 0 currentColor, 0.04ex 0 currentColor;
     }
 
     a {
-        @apply bg-transparent uppercase
+        @apply bg-transparent uppercase font-header tracking-[0.15em] text-base
     }
 
     a:hover {

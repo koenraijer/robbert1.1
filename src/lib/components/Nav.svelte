@@ -68,7 +68,7 @@
                             <label tabindex="0" class="">
                                 <Navlink href={item.url}>{item.title}</Navlink>
                             </label>
-                            <ul tabindex="0" class="menu dropdown-content !top-full pl-2 bg-white w-5/6 shadow-md rounded-md">
+                            <ul tabindex="0" class="menu dropdown-content !top-full pl-2 bg-white w-5/6 ">
                                 {#each item.navigation as sub_item}
                                     <li><Navlink href={sub_item.url}>{sub_item.title}</Navlink></li>
                                 {/each}
@@ -88,7 +88,7 @@
     </nav>
 {/if}
 
-<nav use:clickOutside on:click_outside={handle_click} class="py-4 sm:py-6 flex flex-row flex-nowrap justify-between place-items-center !z-100">
+<nav use:clickOutside on:click_outside={handle_click} class="py-4 sm:py-6 flex flex-row flex-nowrap justify-between place-items-center !z-100 text-primary">
     <!-- Navbar content -->
         <!-- Title -->
         <div class="w-fit">
@@ -100,12 +100,12 @@
         <ul class="flex flex-row row-nowrap justify-start">
             {#each navigation as item}
                 {#if item.navigation}
-                    <li class="pr-6 dropdown dropdown-hover">
+                    <li class="pr-4 pl-2 dropdown dropdown-hover">
                         <!-- svelte-ignore a11y-label-has-associated-control -->
                         <label tabindex="0" class="">
                             <Navlink href={item.url}>{item.title}</Navlink>
                         </label>
-                        <ul tabindex="0" class="menu dropdown-content !top-full pl-2 bg-white w-5/6 shadow-md rounded-md">
+                        <ul tabindex="0" class="menu dropdown-content !top-full pl-2 bg-white w-5/6">
                             {#each item.navigation as sub_item}
                                 <li><Navlink href={sub_item.url}>{sub_item.title}</Navlink></li>
                             {/each}

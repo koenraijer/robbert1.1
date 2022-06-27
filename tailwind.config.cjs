@@ -54,7 +54,7 @@ const config = {
         },
 		extend: {
 			fontFamily: {
-				header: [`'Helvetica'`, ...defaultTheme.fontFamily.sans,]
+				header: [`'Unica One'`,`'Helvetica'`, ...defaultTheme.fontFamily.sans,]
 			},
 			typography: (theme) => ({
 				DEFAULT: {
