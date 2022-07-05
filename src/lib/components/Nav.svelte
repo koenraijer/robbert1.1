@@ -3,10 +3,11 @@
 
     import {fly, fade} from 'svelte/transition'
     import Title from '$lib/components/Title.svelte'
-    import {menu} from '$lib/js/stores'
+    import {menu, nav} from '$lib/js/stores'
     import {clickOutside} from '$lib/js/utils'
     import Navlink from '$lib/components/Navlink.svelte'
     import Socials from '$lib/components/Socials.svelte'
+
     const navigation = [
         {
             title: 'Portfolio',
@@ -51,11 +52,12 @@
 </script>
 
 {#if scroll_up && page_offset > 0}
+    <!-- svelte-ignore component-name-lowercase -->
     <nav in:fade="{{ duration: 150 }}" use:clickOutside on:click_outside={handle_click} class="py-2 sm:py-4 w-full flex flex-row flex-nowrap justify-between place-items-center !z-100 {scroll_up && page_offset > 0 ? "fixed w-full bg-white !z-50 top-0" : "hidden"} pr-12">
         <!-- Navbar content --> 
             <!-- Title -->
             <div class="w-fit">
-                <a href="{navigation[0].url}"><Title {scroll_up} {page_offset}/></a>
+                <a href="{$nav[0].url}"><Title {scroll_up} {page_offset}/></a>
             </div>
 
             <!-- Menu items -->

@@ -121,35 +121,32 @@ export const commercialQuery = gql`
     }
 `
 
-export const authorQuery = gql`
-    query GetAuthor($name: String!, $sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!) {
-        author(where: {name: $name}) {
-        name
-        bio {
-            markdown
-        }
-        intro {
-            markdown
-        }
-        picture {
-            sm: url(
-                transformation: {image: {resize: {fit: clip, width: $sm}}, document: {output: {format: webp}}}
-            )
-            md: url(
-                transformation: {image: {resize: {fit: clip, width: $md}}, document: {output: {format: webp}}}
-            )
-            lg: url(
-                transformation: {image: {resize: {fit: clip, width: $lg}}, document: {output: {format: webp}}}
-            )
-            xl: url(
-                transformation: {image: {resize: {fit: clip, width: $xl}}, document: {output: {format: webp}}}
-            )
-            xxl: url(
-                transformation: {image: {resize: {fit: clip, width: $xxl}}, document: {output: {format: webp}}}
+export const aboutQuery = gql`
+    query getAbout($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!) {
+        about(where: {id: "cl2lmkxsq96vm0btfax09pspv"}) {
+            pageTitle
+            content {
+                markdown
+            }
+            picture {
+                sm: url(
+                    transformation: {image: {resize: {fit: clip, width: $sm}}, document: {output: {format: webp}}}
                 )
-            height
-            width
-        }
+                md: url(
+                    transformation: {image: {resize: {fit: clip, width: $md}}, document: {output: {format: webp}}}
+                )
+                lg: url(
+                    transformation: {image: {resize: {fit: clip, width: $lg}}, document: {output: {format: webp}}}
+                )
+                xl: url(
+                    transformation: {image: {resize: {fit: clip, width: $xl}}, document: {output: {format: webp}}}
+                )
+                xxl: url(
+                    transformation: {image: {resize: {fit: clip, width: $xxl}}, document: {output: {format: webp}}}
+                    )
+                height
+                width
+            }
         }
     }
 `
@@ -253,11 +250,22 @@ export const configQuery = gql`
     }
 `
 
-export const navQuery = gql`
-    query getNav {
+export const socialsQuery = gql`
+    query getSocials {
+        socials {
+            index
+            title
+            url
+            icon
+        }
+    }
+`
+
+export const navigationQuery = gql`
+    query GetNav {
         navigation(where: {id: "cl3cnrtj0wiwn0buqy91n63wh"}) {
-        name
-        items
+            items 
+            navigation
         }
     }
 `
