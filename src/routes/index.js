@@ -7,7 +7,7 @@ export async function get() {
         let md = 768;
         let lg = 1024;
         let xl = 1280;
-        let xxl = 2560; // 1536 oud
+        let xxl = 1536; // 1536 oud
         
         const variables = {sm, md, lg, xl, xxl}
 

@@ -4,7 +4,7 @@
     $: active = $page.url.pathname === href
   </script>
   
-  <a sveltekit:prefetch {href} class:active class="{css}" tabindex="{tabindex}">
+  <a sveltekit:prefetch {href} class:active class="{css} w-fit" tabindex="{tabindex}">
     <slot />
   </a>
   
@@ -15,7 +15,7 @@
     }
 
     a {
-        @apply bg-transparent uppercase font-header tracking-[0.15em] text-base
+        @apply bg-transparent uppercase font-header tracking-[0.15em]
     }
 
     a:hover {

@@ -6,7 +6,7 @@ export async function get() {
         let md = 768;
         let lg = 1024;
         let xl = 1280;
-        let xxl = 2560;
+        let xxl = 1536;
 
         const name = "Robbert Lalisang"
         const variables = {name, sm, md, lg, xl, xxl}
