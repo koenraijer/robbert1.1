@@ -3,11 +3,10 @@
 
     import {fly, fade} from 'svelte/transition'
     import Title from '$lib/components/Title.svelte'
-    import {menu, nav} from '$lib/js/stores'
+    import {menu} from '$lib/js/stores'
     import {clickOutside} from '$lib/js/utils'
     import Navlink from '$lib/components/Navlink.svelte'
     import Socials from '$lib/components/Socials.svelte'
-
     const navigation = [
         {
             title: 'Portfolio',
@@ -52,39 +51,38 @@
 </script>
 
 {#if scroll_up && page_offset > 0}
-    <!-- svelte-ignore component-name-lowercase -->
     <nav in:fade="{{ duration: 150 }}" use:clickOutside on:click_outside={handle_click} class="py-2 sm:py-4 w-full flex flex-row flex-nowrap justify-between place-items-center !z-100 {scroll_up && page_offset > 0 ? "fixed w-full bg-white !z-50 top-0" : "hidden"} pr-12">
         <!-- Navbar content --> 
             <!-- Title -->
             <div class="w-fit">
-                <a href="{$nav[0].url}"><Title {scroll_up} {page_offset}/></a>
+                <a href="{navigation[0].url}"><Title {scroll_up} {page_offset}/></a>
             </div>
 
             <!-- Menu items -->
-            <div class="hidden lg:flex flex-row row-nowrap text-base">
-                <ul class="flex flex-row row-nowrap justify-start">
-                    {#each navigation as item}
-                        {#if item.navigation}
-                            <li class="mr-4 pl-2 dropdown dropdown-hover w-fit">
-                                <!-- svelte-ignore a11y-label-has-associated-control -->
-                                <label tabindex="0" class="">
-                                    <Navlink href={item.url}>{item.title}</Navlink>
-                                </label>
-                                <ul tabindex="0" class="menu dropdown-content !top-full bg-white w-full">
-                                    {#each item.navigation as sub_item}
-                                        <li class="w-fit mx-auto">
-                                            <Navlink href={sub_item.url}>{sub_item.title}</Navlink>
-                                        </li>
-                                    {/each}
-                                </ul>
-                            </li>
-                            {:else}
-                            <li class="pr-4 pl-2 last:pr-0"><Navlink href={item.url}>{item.title}</Navlink></li>
-                        {/if}
-                    {/each}
-                </ul>
-                <div class="ml-4">
-                    |<span class="ml-4"></span><Socials/>
+            <div class="hidden lg:flex text-base flex-row row-nowrap">
+            <ul class="flex flex-row row-nowrap justify-start">
+                {#each navigation as item}
+                    {#if item.navigation}
+                        <li class="mr-4 pl-2 dropdown dropdown-hover w-fit">
+                            <!-- svelte-ignore a11y-label-has-associated-control -->
+                            <label tabindex="0" class="">
+                                <Navlink href={item.url}>{item.title}</Navlink>
+                            </label>
+                            <ul tabindex="0" class="menu dropdown-content !top-full bg-white w-full">
+                                {#each item.navigation as sub_item}
+                                    <li class="w-fit mx-auto">
+                                        <Navlink href={sub_item.url}>{sub_item.title}</Navlink>
+                                    </li>
+                                {/each}
+                            </ul>
+                        </li>
+                    {:else}
+                        <li class="pr-4 pl-2 last:border-r-2 last:border-primary"><Navlink href={item.url}>{item.title}</Navlink></li>
+                    {/if}
+                {/each}
+            </ul>
+                <div class="flex flex-row row-nowrap gap-4 pl-4 items-center">
+                    <Socials/>
                 </div>
             </div>
 
@@ -103,30 +101,30 @@
         </div>
 
         <!-- Menu items -->
-        <div class="hidden lg:flex flex-row row-nowrap text-base">
-            <ul class="flex flex-row row-nowrap justify-start">
-                {#each navigation as item}
-                    {#if item.navigation}
-                        <li class="mr-4 pl-2 dropdown dropdown-hover w-fit">
-                            <!-- svelte-ignore a11y-label-has-associated-control -->
-                            <label tabindex="0" class="">
-                                <Navlink href={item.url}>{item.title}</Navlink>
-                            </label>
-                            <ul tabindex="0" class="menu dropdown-content !top-full bg-white w-full">
-                                {#each item.navigation as sub_item}
-                                    <li class="w-fit mx-auto">
-                                        <Navlink href={sub_item.url}>{sub_item.title}</Navlink>
-                                    </li>
-                                {/each}
-                            </ul>
-                        </li>
-                    {:else}
-                        <li class="pr-4 pl-2 last:pr-0"><Navlink href={item.url}>{item.title}</Navlink></li>
-                    {/if}
-                {/each}
-            </ul>
-            <div class="ml-4">
-                |<span class="ml-4"></span><Socials/>
+        <div class="hidden lg:flex text-base flex-row row-nowrap">
+        <ul class="flex flex-row row-nowrap justify-start">
+            {#each navigation as item}
+                {#if item.navigation}
+                    <li class="mr-4 pl-2 dropdown dropdown-hover w-fit">
+                        <!-- svelte-ignore a11y-label-has-associated-control -->
+                        <label tabindex="0" class="">
+                            <Navlink href={item.url}>{item.title}</Navlink>
+                        </label>
+                        <ul tabindex="0" class="menu dropdown-content !top-full bg-white w-full">
+                            {#each item.navigation as sub_item}
+                                <li class="w-fit mx-auto">
+                                    <Navlink href={sub_item.url}>{sub_item.title}</Navlink>
+                                </li>
+                            {/each}
+                        </ul>
+                    </li>
+                {:else}
+                    <li class="pr-4 pl-2 last:border-r-2 last:border-primary"><Navlink href={item.url}>{item.title}</Navlink></li>
+                {/if}
+            {/each}
+        </ul>
+            <div class="flex flex-row row-nowrap gap-4 pl-4 items-center">
+                <Socials/>
             </div>
         </div>
 
