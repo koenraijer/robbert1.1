@@ -9,7 +9,7 @@ export async function get() {
         let xxl = 1536;
 
         const variables = {sm, md, lg, xl, xxl}
-        width = {width: md}
+        const width = {width: md}
         const {commercials} = await client.request(commercialsQuery, variables) 
         const {clients} = await client.request(clientsQuery, width)
         return {

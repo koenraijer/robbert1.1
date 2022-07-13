@@ -11,8 +11,8 @@
 </svelte:head>
 
 <article class="prose mx-auto text-base prose-headings:!font-normal">
-    <Figure css="aspect-square w-full" alt={about.pageTitle} img={about.picture} width={about.picture.width} height={about.picture.height}/>
-    <h1>{about.pageTitle}</h1>
+    <Figure css="object-cover" alt={about.pageTitle} img={about.picture} width={about.picture.width} height={about.picture.height}/>
+    <h1 class="uppercase">{about.pageTitle}</h1>
     
     <p>{@html marked(about.content.markdown)}</p>
 

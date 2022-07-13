@@ -1,7 +1,6 @@
 <script>
 	import {autoresize} from 'svelte-textarea-autoresize'
-	import {goto} from '$app/navigation'
-	import {fade} from 'svelte/transition'
+	import {config} from '$lib/js/stores'
 	let name, email, message;
 	let show_success_message = false; 
 	let show_user_instructions = false;
@@ -29,8 +28,20 @@
 	
 </script>
 
+<svelte:head>
+	<title>Contact</title>
+	<meta name="description" content="Get in touch with Robbert." />
+
+	<!--Facebook-->
+	<meta property="og:image" content={$config.OG_image} />
+	<meta property="og:description" content={$config.descr} />
+	<meta property="og:title" content={$config.title} />
+
+	<!--Twitter-->
+	<meta name="twitter:title" content={$config.title} />
+</svelte:head>
 <div class="prose mx-auto">
-    <h1 class="p-0 m-0">Contact</h1>
+    <h1 class="p-0 m-0 uppercase">Contact</h1>
     <p class="pb-6">Leave a message and I'll get back to you as soon as possible!</p>
 	<form method="POST">
 		<div class="relative z-0 mb-8 w-full group">

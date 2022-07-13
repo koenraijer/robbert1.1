@@ -33,7 +33,7 @@
     let images = project.image
 
     const secondOfTwo = images.slice().splice(-twoPartIndex);
-    const firstOfTwo = images.slice().splice(0, twoPartIndex);
+    const firstOfTwo = images.slice().splice(0, (project.image.length % 2 === 0 ? twoPartIndex : twoPartIndex - 1));
 
     const thirdOfThree = images.splice(-threePartIndex);
     const secondOfThree = images.splice(-threePartIndex);
@@ -47,7 +47,6 @@
 
 <h1 class="text-xl font-normal text-center uppercase mx-auto my-4">{project.name}</h1>
 <p class="text-center text-sm sm:w-5/6 mx-auto mb-6 sm:mb-12">{@html marked(project.description.markdown)}</p>
-
 
 <section class="">
     {#if project.colNum === 3}
@@ -70,7 +69,7 @@
         </div>
     {:else if project.colNum === 2}
         <div class="grid sm:grid-cols-2 grid-cols-1 w-full h-full gap-4">
-            <div class="flex flex-col row-nowrap gap-4 items-start">
+            <div class="flex flex-col row-nowrap gap-4">
                 {#each firstOfTwo as image, i}
                         <Figure css="max-h-full min-w-full object-cover" alt={project.name} img={image} width={image.width} height={image.height} i={i}/>
                 {/each}
@@ -83,16 +82,29 @@
         </div>
     {:else if project.colNum === 1}
         <div class="grid grid-cols-1 w-full h-full gap-4">
+            <div class="flex flex-col row-nowrap gap-4">
+                {#each firstOfTwo as image, i}
+                        <Figure css="max-h-full min-w-full object-cover" alt={project.name} img={image} width={image.width} height={image.height} i={i}/>
+                {/each}
+            </div>
             <div class="flex flex-col row-nowrap gap-4 items-start">
-                {#each project.image as image, i}
-                    <Figure css="max-h-full min-w-full object-cover" alt={project.name} img={image} width={image.width} height={image.height} i={i}/>
+                {#each secondOfTwo as image, i}
+                        <Figure css="max-h-full min-w-full object-cover" alt={project.name} img={image} width={image.width} height={image.height} i={i}/>
                 {/each}
             </div>
         </div>
     {/if}
 </section>
 
+
 <!--
+Simple flex-row design
+<section class="flex flex-row flex-wrap gap-4 justify-start">
+    {#each firstOfThree as image, i}
+        <Figure css="h-auto w-[30rem]" alt={project.name} img={image} width={image.width} height={image.height} i={i}/>
+    {/each}
+</section>
+
 
 <div class="grid grid-cols-1 sm:grid-cols-2 grid-flow-dense gap-3 sm:gap-6">
     {#each project.image as image, i}

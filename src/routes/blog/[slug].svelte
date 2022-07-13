@@ -32,9 +32,9 @@
     <link rel="preload" as="image" href="{post.coverImage.xxl}" imagesrcset="{post.coverImage.sm} {$config.image_sizes.sm}, {post.coverImage.md} {$config.image_sizes.md}, {post.coverImage.lg} {$config.image_sizes.lg}, {post.coverImage.xl} {$config.image_sizes.xl}, {post.coverImage.xxl} {$config.image_sizes.xxl}" imagesizes="50vw">
 </svelte:head>
 
-<article class="prose mx-auto text-base prose-headings:!font-normal mb-8">
+<article class="prose mx-auto text-base prose-headings:font-normal mb-8">
     <Figure css="transition-opacity group-hover:opacity-50 pb-6" alt={post.title} img={post.coverImage} width={post.coverImage.width} height={post.coverImage.height} i="0"/>
-    <h2 class="m-0 p-0 pb-6 text-base text-gray-500 font-normal">{post.date}</h2>
-    <h1 class="m-0 p-0 pb-2">{post.title}</h1>
+    <time title="Date first published" class="text-gray-600 text-xs uppercase" datetime="{post.date}">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+    <h1 class="uppercase">{post.title}</h1>
     {@html marked(post.content.markdown)}
 </article>
