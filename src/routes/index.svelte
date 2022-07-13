@@ -10,11 +10,11 @@
 </script>
 
 <svelte:head>
-    <link rel="preload" as="image" href="{projects[0].image[0].xxl}" imagesrcset="{projects[0].image[0].sm} {$config.image_sizes.sm}, {projects[0].image[0].md} {$config.image_sizes.md}, {projects[0].image[0].lg} {$config.image_sizes.lg}, {projects[0].image[0].xl} {$config.image_sizes.xl}, {projects[0].image[0].xxl} {$config.image_sizes.xxl}" imagesizes="100vw">
+    <link rel="preload" as="image" href="{projects[0].image[projects[0].coverImage - 1].xxl}" imagesrcset="{projects[0].image[projects[0].coverImage - 1].sm} {$config.image_sizes.sm}, {projects[0].image[projects[0].coverImage - 1].md} {$config.image_sizes.md}, {projects[0].image[projects[0].coverImage - 1].lg} {$config.image_sizes.lg}, {projects[0].image[projects[0].coverImage - 1].xl} {$config.image_sizes.xl}, {projects[0].image[projects[0].coverImage - 1].xxl} {$config.image_sizes.xxl}" imagesizes="100vw">
 </svelte:head>
-{#each projects as {slug, name, image}, i} 
+{#each projects as {slug, name, image, coverImage}, i} 
     <a sveltekit:prefetch class="mx-auto relative group grid transition-all place-items-center w-full pb-3 sm:pb-6" href="/projects/{slug}">
-        <Figure css="row-start-1 col-start-1 transition-all group-hover:brightness-50 !aspect-video" alt={name} img={image[0]} width={image[0].width} height={image[0].height} i={i}/>
+        <Figure css="row-start-1 col-start-1 transition-all group-hover:brightness-50" alt={name} img={image[coverImage - 1]} width={image[coverImage - 1].width} height={image[coverImage - 1].height} i={i}/>
         <h2 class="invisible group-hover:visible absolute text-white text-3xl uppercase left-4 sm:left-8 font-extralight text-opacity-50 ">{name}</h2>
     </a>
 {/each}
