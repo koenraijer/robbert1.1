@@ -7,6 +7,9 @@
     import {clickOutside} from '$lib/js/utils'
     import Navlink from '$lib/components/Navlink.svelte'
     import Socials from '$lib/components/Socials.svelte'
+    import { onMount } from 'svelte';
+    import { browser } from '$app/env';
+
     const navigation = [
         {
             title: 'Portfolio',

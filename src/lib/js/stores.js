@@ -1,6 +1,6 @@
-import {writable, readable} from 'svelte/store'
 import {client} from '$lib/js/graphql-client'
 import {socialsQuery, navigationQuery, configQuery} from '$lib/js/graphql-queries'
+import {writable} from 'svelte/store'
 
 export const config = writable({
     title: 'Robbert Lalisang Photography', // SEO
@@ -28,13 +28,14 @@ export const menu = writable({
   open: false
 })
 
-export const socials = readable([], (set) => { 
+export const socials = writable([], (set) => { 
   client.request(socialsQuery)
     .then(res => set(res.socials))
  });
 
-export const nav = readable([], (set) => { 
+export const nav = writable([], (set) => { 
   client.request(navigationQuery)
     .then(res => set(res.navigation.items))
  });
   // https://codepen.io/shshaw/post/responsive-placeholder-image
+

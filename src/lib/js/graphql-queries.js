@@ -32,6 +32,7 @@ export const projectsQuery = gql`
 export const projectQuery = gql`
     query GetProject($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!, $slug: String!) {
         project(where: {slug: $slug}) {
+            colNum
             name
             slug
             description {

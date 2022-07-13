@@ -24,7 +24,7 @@
 <img 
     class:loaded
     bind:this={this_image}
-    class="w-full h-full object-cover aspect-auto {css}" 
+    class="{css}" 
     alt={alt}
     data-srcset="{img.sm} {sm}, {img.md} {md}, {img.lg} {lg}, {img.xl} {lg}, {img.xxl} {xxl}" 
     srcset='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8+fOvJAAI7AMKHxaZiQAAAABJRU5ErkJggg=='

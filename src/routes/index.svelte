@@ -6,6 +6,7 @@
     projects.sort(function(a,b) {
         return a.index > b.index;
     })
+    
 </script>
 
 <svelte:head>
