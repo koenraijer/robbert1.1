@@ -8,6 +8,16 @@
 
 <svelte:head>
     <link rel="preload" as="image" href="{about.picture.xxl}" imagesrcset="{about.picture.sm} {$config.image_sizes.sm}, {about.picture.md} {$config.image_sizes.md}, {about.picture.lg} {$config.image_sizes.lg}, {about.picture.xl} {$config.image_sizes.xl}, {about.picture.xxl} {$config.image_sizes.xxl}" imagesizes="50vw">
+    <title>{about.pageTitle}</title>
+	<meta name="description" content="Robbert Lalisang Photography - About page." />
+
+	<!--Facebook-->
+	<meta property="og:image" content={$config.OG_image} />
+	<meta property="og:description" content={$config.descr} />
+	<meta property="og:title" content={$config.title} />
+
+	<!--Twitter-->
+	<meta name="twitter:title" content={$config.title} />
 </svelte:head>
 
 <article class="prose mx-auto text-base prose-headings:!font-normal">

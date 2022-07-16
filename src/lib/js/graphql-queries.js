@@ -256,7 +256,6 @@ export const configQuery = gql`
 export const socialsQuery = gql`
     query getSocials {
         socials {
-            index
             title
             url
             icon

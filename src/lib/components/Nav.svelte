@@ -85,7 +85,7 @@
                 {/each}
             </ul>
                 <div class="flex flex-row row-nowrap gap-4 pl-4 items-center">
-                    <Socials/>
+                    <Socials navbar/>
                 </div>
             </div>
 
@@ -127,7 +127,7 @@
             {/each}
         </ul>
             <div class="flex flex-row row-nowrap gap-4 pl-4 items-center">
-                <Socials/>
+                <Socials navbar />
             </div>
         </div>
 
@@ -177,7 +177,7 @@
 
     <!-- Area for social media icons -->
     <div class="w-fit mx-auto md:ml-0 md:mr-auto flex-row row-nowrap justify-center">
-        <Socials/>
+        <Socials navbar />
     </div>
 </aside>
 {/if}

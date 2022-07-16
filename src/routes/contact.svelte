@@ -29,16 +29,8 @@
 </script>
 
 <svelte:head>
-	<title>Contact</title>
-	<meta name="description" content="Get in touch with Robbert." />
-
-	<!--Facebook-->
-	<meta property="og:image" content={$config.OG_image} />
-	<meta property="og:description" content={$config.descr} />
-	<meta property="og:title" content={$config.title} />
-
-	<!--Twitter-->
-	<meta name="twitter:title" content={$config.title} />
+	<title>Robbert Lalisang Photography - Contact</title>
+	<meta name="description" content="Robbert Lalisang Photography - Contact" />
 </svelte:head>
 <div class="prose mx-auto">
     <h1 class="p-0 m-0 uppercase">Contact</h1>

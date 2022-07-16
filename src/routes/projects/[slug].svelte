@@ -43,6 +43,16 @@
 
 <svelte:head>
     <link rel="preload" as="image" href="{project.image.xxl}" imagesrcset="{project.image.sm} {$config.image_sizes.sm}, {project.image.md} {$config.image_sizes.md}, {project.image.lg} {$config.image_sizes.lg}, {project.image.xl} {$config.image_sizes.xl}, {project.image.xxl} {$config.image_sizes.xxl}" imagesizes="100vw">
+    <title>{project.name}</title>
+	<meta name="description" content="Robbert Lalisang Photography - {project.name}" />
+
+	<!--Facebook-->
+	<meta property="og:image" content={$config.OG_image} />
+	<meta property="og:description" content={$config.descr}/>
+	<meta property="og:title" content={project.name} />
+
+	<!--Twitter-->
+	<meta name="twitter:title" content={project.name} />
 </svelte:head>
 
 <h1 class="text-xl font-normal text-center uppercase mx-auto my-4">{project.name}</h1>

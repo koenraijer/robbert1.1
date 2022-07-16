@@ -35,15 +35,28 @@
 
 <svelte:head>
     <link rel="preload" as="image" href="{commercial.image.xxl}" imagesrcset="{commercial.image.sm} {$config.image_sizes.sm}, {commercial.image.md} {$config.image_sizes.md}, {commercial.image.lg} {$config.image_sizes.lg}, {commercial.image.xl} {$config.image_sizes.xl}, {commercial.image.xxl} {$config.image_sizes.xxl}" imagesizes="100vw">
+    <title>{commercial.name} Photography</title>
+	<meta name="description" content="Robbert Lalisang Photography - {commercial.name}" />
+
+	<!--Facebook-->
+	<meta property="og:image" content={$config.OG_image} />
+	<meta property="og:description" content={$config.descr}/>
+	<meta property="og:title" content={commercial.name} />
+
+	<!--Twitter-->
+	<meta name="twitter:title" content={commercial.name} />
 </svelte:head>
 
-<h1 class="uppercase">{commercial.name}</h1>
-<p class="mb-6">{@html marked(commercial.description.markdown)}</p>
+<section class="w-screen-lg mx-auto">
+    <h1 class="uppercase text-center">{commercial.name}</h1>
+    <p class="mb-6 text-center">{@html marked(commercial.description.markdown)}</p>
 
-{#if currentRoute.includes('product')}
-    <Clients {clients}/>
-{/if}
-{#each commercial.image as image, i}
-    <Figure css="transition-opacity group-hover:opacity-50 pb-6" alt={commercial.name} img={image} sm md lg xl xxl width={image.width} height={image.height} i={i}/>
-{/each}
+    {#if !currentRoute.includes('wedding')}
+        <Clients {clients}/>
+    {/if}
+    {#each commercial.image as image, i}
+        <Figure css="transition-opacity group-hover:opacity-50 pb-6" alt={commercial.name} img={image} sm md lg xl xxl width={image.width} height={image.height} i={i}/>
+    {/each}
+</section>
+
 
