@@ -16,7 +16,7 @@
 	import { fade } from 'svelte/transition';
 	import {menu} from '$lib/js/stores'
 	import {navigating} from '$app/stores'
-	import {config} from '$lib/js/stores'
+	import {config, seo} from '$lib/js/stores'
 	export let currentRoute
 
 	$: if($navigating)
@@ -37,20 +37,19 @@
 			old_page_offset = page_offset;
 			});
 	}
-
 </script>
 
 <svelte:head>
-	<title>{$config.title}</title>
-	<meta name="description" content={$config.descr} />
+	<title>{$seo.title}</title>
+	<meta name="description" content={$seo.description} />
 
 	<!--Facebook-->
 	<meta property="og:image" content={$config.OG_image} />
-	<meta property="og:description" content={$config.descr} />
-	<meta property="og:title" content={$config.title} />
+	<meta property="og:description" content={$seo.description} />
+	<meta property="og:title" content={$seo.title} />
 
 	<!--Twitter-->
-	<meta name="twitter:title" content={$config.title} />
+	<meta name="twitter:title" content={$seo.title} />
 
 	<!--Favicons-->
 	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">

@@ -246,9 +246,6 @@ export const configQuery = gql`
         domain
         title
         description
-        openGraphImage {
-            url
-        }
         }
     }
 `

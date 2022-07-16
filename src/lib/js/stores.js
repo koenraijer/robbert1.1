@@ -25,6 +25,10 @@ export const menu = writable({
   open: false
 })
 
+export const seo = writable([], (set) => {
+  client.request(configQuery).then(res => set(res.configuration))
+}) 
+
 export const socials = writable([], (set) => { 
   client.request(socialsQuery)
     .then(res => set(res.socials))
