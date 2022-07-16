@@ -55,7 +55,7 @@
 	<meta name="twitter:title" content={project.name} />
 </svelte:head>
 
-<h1 class="text-xl font-normal text-center uppercase mx-auto my-4">{project.name}</h1>
+<h1 class="text-xl font-headings text-primary text-center mx-auto my-4">{project.name}</h1>
 <p class="text-center text-sm sm:w-5/6 mx-auto mb-6 sm:mb-12">{@html marked(project.description.markdown)}</p>
 
 <section class="">

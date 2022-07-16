@@ -21,9 +21,9 @@
 </svelte:head>
 
 <article class="prose mx-auto text-base prose-headings:!font-normal">
-    <Figure css="object-cover" alt={about.pageTitle} img={about.picture} width={about.picture.width} height={about.picture.height}/>
-    <h1 class="uppercase">{about.pageTitle}</h1>
-    
+    <Figure css="object-cover w-5/6" alt={about.pageTitle} img={about.picture} width={about.picture.width} height={about.picture.height}/>
+    <h1 class="!text-2xl mb-2 !py-0">{about.pageTitle}</h1>
+
     <p>{@html marked(about.content.markdown)}</p>
 
     <h2>Latest Instagram posts</h2> 

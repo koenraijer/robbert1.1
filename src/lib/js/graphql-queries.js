@@ -269,3 +269,13 @@ export const navigationQuery = gql`
     }
 `
 
+export const contactTextQuery = gql`
+    query getContactText {
+        contactText(where: {id: "cl5nq8kulgj020dumejd4kwy1"}) {
+        id
+        content {
+            markdown
+        }
+        }
+    }
+`

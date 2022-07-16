@@ -40,7 +40,7 @@
 
 {#if clients.length >= 1}
     <div class="flex flex-col w-full border-opacity-50 py-8 my-8">
-        <h2 class="divider uppercase text-lg">Partnered with</h2>
+        <h2 class="divider font-header uppercase text-base">Partnered with</h2>
         <div class="flex flex-row flex-nowrap justify-between max-w-screen">
             {#each clients_grouped as clients_group, i}
                 <div class="grid fill-gray-500">
@@ -60,5 +60,6 @@
                 </div>
             {/each}
         </div>
+        <div class="divider"></div>
     </div>
 {/if}

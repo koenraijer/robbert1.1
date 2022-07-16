@@ -1,5 +1,7 @@
 <script>
 	import {autoresize} from 'svelte-textarea-autoresize'
+	export let contactText;
+	import {marked} from 'marked';
 	import {config} from '$lib/js/stores'
 	let name, email, message;
 	let show_success_message = false; 
@@ -33,8 +35,8 @@
 	<meta name="description" content="Robbert Lalisang Photography - Contact" />
 </svelte:head>
 <div class="prose mx-auto">
-    <h1 class="p-0 m-0 uppercase">Contact</h1>
-    <p class="pb-6">Leave a message and I'll get back to you as soon as possible!</p>
+    <h1 class="p-0 m-0 !text-2xl">Contact</h1>
+    <p class="pb-6">{@html marked(contactText.content.markdown)}</p>
 	<form method="POST">
 		<div class="relative z-0 mb-8 w-full group">
 			<input bind:value={name} type="text" name="floating_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-focus peer" placeholder=" " required />

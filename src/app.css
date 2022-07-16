@@ -8,13 +8,16 @@
 }
 
 @layer components {
-
+    p {
+        @apply font-body;
+    }
+    
     .prose:where(h1, h2, h3, h4, h5, h6):not(:where([class~="not-prose"])) {
         @apply font-normal;
     }
 
     h1, h2, h3, h4, h5, h6 {
-        @apply font-header text-primary
+        @apply font-headings text-primary
     }
 
     h1, .prose h1 {

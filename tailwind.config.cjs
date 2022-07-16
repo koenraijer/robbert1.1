@@ -19,6 +19,10 @@ const config = {
 	  },
 
 	theme: {
+    fontFamily: {
+      'headings': [`'Titillium Web'`],
+      'body': [`'Palanquin'`]
+    },
 		fluidType: {
             // your fluid type settings
             // works only with unitless numbers
@@ -55,7 +59,7 @@ const config = {
 		extend: {
 			fontFamily: {
 				header: [`'Unica One'`,`'Helvetica'`, ...defaultTheme.fontFamily.sans,],
-        sans: [`'Helvetica'`, ...defaultTheme.fontFamily.sans]
+        sans: [`'Helvetica'`, ...defaultTheme.fontFamily.sans],
 			},
 			typography: (theme) => ({
 				DEFAULT: {

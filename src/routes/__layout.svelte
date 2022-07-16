@@ -62,7 +62,10 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Unica+One&display=swap" rel="stylesheet"> 
-	<!--Preloading-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Palanquin&family=Titillium+Web:wght@600&display=swap" rel="stylesheet"> 
 </svelte:head>
 
 <div class:overlay={$menu.open === true}></div>
