@@ -15,7 +15,7 @@
         } else {
             j += 1
         }
-    }, 12000);
+    }, 3000);
 
     setTimeout(() => {
         setInterval(() => {
@@ -24,8 +24,8 @@
             } else {
                 k += 1
             }
-        }, 12000);
-    }, 4000)
+        }, 3000);
+    }, 1000)
 
     setTimeout(() => {
         setInterval(() => {
@@ -34,8 +34,14 @@
             } else {
                 l += 1
             }
-        }, 12000);
-    }, 8000)
+        }, 3000);
+    }, 2000)
+
+   /* 
+   - You need to tell the next item when to start, based on the on:outroend event.
+   - To do this, each logo needs a boolean that the previous logo can set to true when it has finished the transition. 
+   - 
+   */
 </script>
 
 <div class="flex flex-col w-screen-lg border-opacity-50 py-8 my-8">
@@ -45,7 +51,7 @@
             <div class="grid fill-gray-500">
                 {#if i === 0}
                     {#key j}
-                        <img in:fly="{{ y: -50, duration: 300, delay: 1250 }}" out:fly="{{ y: 50, duration: 100 }}" class="p-3 sm:p-6 object-contain aspect-auto h-24 col-start-1 row-start-1 col-span-1 row-span-1" src={clients_group[j].logo.url} alt={clients_group[j].name}>
+                        <img class="p-3 sm:p-6 object-contain aspect-auto h-24 col-start-1 row-start-1 col-span-1 row-span-1" src={clients_group[j].logo.url} alt={clients_group[j].name}>
                     {/key}
                 {:else if i === 1}
                     {#key k}
@@ -61,3 +67,4 @@
     </div>
     <div class="divider"></div>
 </div>
+

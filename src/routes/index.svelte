@@ -1,8 +1,9 @@
 <script>
+    import { browser } from '$app/env'; 
     import Figure from '$lib/components/Figure.svelte'
     import {config} from '$lib/js/stores'
     export let projects
-    
+
 </script>
 
 <svelte:head>
@@ -25,4 +26,3 @@
         <h2 class="invisible font-header group-hover:visible absolute text-white text-2xl uppercase left-4 sm:left-8 font-extralight text-opacity-50 ">{name}</h2>
     </a>
 {/each}
-

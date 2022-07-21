@@ -1,6 +1,15 @@
 import {client} from '$lib/js/graphql-client'
-import {socialsQuery, navigationQuery, configQuery} from '$lib/js/graphql-queries'
+import {socialsQuery, navigationQuery, configQuery, projectsQuery} from '$lib/js/graphql-queries'
 import {writable} from 'svelte/store'
+import {browser} from '$app/env'
+
+let sm = 640;
+let md = 768;
+let lg = 1024;
+let xl = 1280;
+let xxl = 1536;
+
+const variables = {sm, md, lg, xl, xxl}
 
 export const config = writable({
     title: 'Robbert Lalisang Photography', // SEO
