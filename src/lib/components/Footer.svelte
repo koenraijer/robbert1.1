@@ -5,10 +5,8 @@
     <div class="divider w-full mb-8">
         <Socials/>
     </div>
-    <div class="flex flex-row row-nowrap justify-between">
-        <span class="self-end w-fit inline-block mx-0">© Robbert Lalisang {new Date().getFullYear()}. All rights reserved.</span>
-
+    <div class="flex flex-wrap justify-between">
+        <span class="w-fit flex-shrink-0">© Robbert Lalisang {new Date().getFullYear()}. All rights reserved.</span>
         <a href="https://studio.koenraijer.io/" rel="noopener noreferrer" class="text-slate-500"><span class="text-[0.50rem] sm:text-[0.60rem]">de</span> Studio <span class="text-[0.50rem] sm:text-[0.60rem]">van</span> <b>Koen</b>.</a>
-
     </div>
-</footer>
+</footer>s

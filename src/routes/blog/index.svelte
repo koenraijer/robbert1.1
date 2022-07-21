@@ -8,11 +8,11 @@
     <link rel="preload" as="image" href="{posts[0].coverImage.xxl}" imagesrcset="{posts[0].coverImage.sm} {$config.image_sizes.sm}, {posts[0].coverImage.md} {$config.image_sizes.md}, {posts[0].coverImage.xl} {$config.image_sizes.xl}, {posts[0].coverImage.xxl} {$config.image_sizes.xxl}" imagesizes="50vw">
 </svelte:head>
 
-<div class="max-w-[65ch] mx-auto text-base prose-headings:!font-normal mb-8">
+<div class="max-w-[65ch] mx-auto text-base mb-8">
     {#each posts as {title, date, slug, coverImage, snippet}, i} 
         <a sveltekit:prefetch class="block mb-20 h-fit group" href="/blog/{slug}" alt={title}>
             <Figure css="pb-4 mb-0 mt-8 object-contain w-full h-auto" alt={title} img={coverImage} width={coverImage.width} height={coverImage.height} i={i}/>
-            <h2 class="text-xl text-center !font-[600] pb-2 group-hover:text-secondary-focus text-inherit">{title}</h2>
+            <h2 class="text-xl text-center pb-2 font-semibold group-hover:text-secondary-focus text-inherit">{title}</h2>
             <div class="flex flex-row w-full place-items-center">
                 <time title="Date first published" class="text-sm text-gray-400 w-fit font-header mx-auto uppercase text-center" datetime="{date}">{new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
             </div>
