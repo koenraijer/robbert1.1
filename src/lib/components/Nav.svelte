@@ -54,50 +54,53 @@
 </script>
 
 {#if scroll_up && page_offset > 0}
-    <nav in:fade="{{ duration: 150 }}" use:clickOutside on:click_outside={handle_click} class="py-2 sm:py-4 sm:pt-5 w-full flex flex-row flex-nowrap justify-between place-items-center !z-100 {scroll_up && page_offset > 0 ? "fixed w-full bg-white !z-50 top-0" : "hidden"} pr-12">
+    <nav in:fade="{{ duration: 150 }}" use:clickOutside on:click_outside={handle_click} class="py-2 sm:py-4 sm:pt-5 w-full !z-100 {scroll_up && page_offset > 0 ? "fixed w-full bg-white !z-50 top-0" : "hidden"} pr-12">
         <!-- Navbar content --> 
-            <!-- Title -->
-            <div class="w-fit">
-                <a href="{navigation[0].url}"><Title {scroll_up} {page_offset}/></a>
-            </div>
-
-            <!-- Menu items -->
-            <div class="hidden lg:flex text-base flex-row row-nowrap">
-            <ul class="flex flex-row row-nowrap justify-start">
-                {#each navigation as item}
-                    {#if item.navigation}
-                        <li class="mr-4 pl-2 dropdown dropdown-hover w-fit">
-                            <!-- svelte-ignore a11y-label-has-associated-control -->
-                            <label tabindex="0" class="">
-                                <Navlink href={item.url}>{item.title}</Navlink>
-                            </label>
-                            <ul tabindex="0" class="menu dropdown-content !top-full bg-white w-full">
-                                {#each item.navigation as sub_item}
-                                    <li class="w-fit mx-auto">
-                                        <Navlink href={sub_item.url}>{sub_item.title}</Navlink>
+        <div class="max-w-screen-xl xl:max-w-screen-2xl flex flex-row flex-nowrap justify-between place-items-center mx-auto">
+                        <!-- Title -->
+                        <div class="w-fit">
+                            <a href="{navigation[0].url}"><Title {scroll_up} {page_offset}/></a>
+                        </div>
+            
+                        <!-- Menu items -->
+                        <div class="hidden lg:flex text-base flex-row row-nowrap">
+                        <ul class="flex flex-row row-nowrap justify-start">
+                            {#each navigation as item}
+                                {#if item.navigation}
+                                    <li class="mr-4 pl-2 dropdown dropdown-hover w-fit">
+                                        <!-- svelte-ignore a11y-label-has-associated-control -->
+                                        <label tabindex="0" class="">
+                                            <Navlink href={item.url}>{item.title}</Navlink>
+                                        </label>
+                                        <ul tabindex="0" class="menu dropdown-content !top-full bg-white w-full">
+                                            {#each item.navigation as sub_item}
+                                                <li class="w-fit mx-auto">
+                                                    <Navlink href={sub_item.url}>{sub_item.title}</Navlink>
+                                                </li>
+                                            {/each}
+                                        </ul>
                                     </li>
-                                {/each}
-                            </ul>
-                        </li>
-                    {:else}
-                        <li class="pr-4 pl-2 last:border-r-2 last:border-primary"><Navlink href={item.url}>{item.title}</Navlink></li>
-                    {/if}
-                {/each}
-            </ul>
-                <div class="flex flex-row row-nowrap gap-4 pl-4 items-center">
-                    <Socials navbar/>
-                </div>
-            </div>
-
-            <!-- Hamburger icon -->
-            <button class="lg:hidden hover:stroke-primary hover:cursor-pointer" on:click={() => open = !open}>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-            </button>
+                                {:else}
+                                    <li class="pr-4 pl-2 last:border-r-2 last:border-primary"><Navlink href={item.url}>{item.title}</Navlink></li>
+                                {/if}
+                            {/each}
+                        </ul>
+                            <div class="flex flex-row row-nowrap gap-4 pl-4 items-center">
+                                <Socials navbar/>
+                            </div>
+                        </div>
+            
+                        <!-- Hamburger icon -->
+                        <button class="lg:hidden hover:stroke-primary hover:cursor-pointer" on:click={() => open = !open}>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                        </button>
+        </div>
     </nav>
 {/if}
 
-<nav use:clickOutside on:click_outside={handle_click} class="py-2 sm:py-4 sm:pt-5 flex flex-row flex-nowrap justify-between place-items-center !z-100 text-primary">
+<nav use:clickOutside on:click_outside={handle_click} class="py-2 sm:py-4 sm:pt-5 !z-100 text-primary flex place-items-stretch">
     <!-- Navbar content -->
+    <div class="max-w-screen-xl xl:max-w-screen-2xl flex flex-row flex-nowrap justify-between mx-auto place-items-center !w-full">
         <!-- Title -->
         <div class="w-fit">
             <a href="{navigation[0].url}"><Title {scroll_up} {page_offset}/></a>
@@ -135,6 +138,7 @@
         <button class="lg:hidden hover:stroke-primary hover:cursor-pointer" on:click={() => open = !open}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
+    </div>
 </nav>
 
 <!--Sidebar content-->

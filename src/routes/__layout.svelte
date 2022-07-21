@@ -67,7 +67,7 @@
 	<Nav {scroll_up} {page_offset} />
 
 	{#key currentRoute}
-	<main in:fade={{ duration: 150 }} out:fade={{ duration: 150 }} class="pt-0 sm:pt-6 h-fit overflow-hidden max-w-screen-xl mx-auto flex-grow">
+	<main in:fade={{ duration: 150 }} out:fade={{ duration: 150 }} class="pt-0 sm:pt-6 h-fit overflow-hidden max-w-screen-xl mx-auto flex-grow xl:max-w-screen-2xl">
 			<slot></slot>
 	</main>
 	{/key}

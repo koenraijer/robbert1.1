@@ -15,7 +15,7 @@
     }
 
     a {
-        @apply bg-transparent uppercase font-header tracking-[0.15em]
+        @apply bg-transparent font-header tracking-[0.15em]
     }
 
     a:hover {
