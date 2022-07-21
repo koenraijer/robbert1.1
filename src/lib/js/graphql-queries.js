@@ -2,7 +2,7 @@ import {gql} from 'graphql-request'
 
 export const projectsQuery = gql`
     query GetProjects($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!) {
-        projects {
+        projects(orderBy: index_ASC) {
             image {
                 sm: url(
                     transformation: {image: {resize: {fit: clip, width: $sm}}, document: {output: {format: webp}}}
@@ -64,7 +64,7 @@ export const projectQuery = gql`
 
 export const commercialsQuery = gql`
     query GetCommercials($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!) {
-        commercials {
+        commercials(orderBy: index_ASC) {
             image {
                 sm: url(
                     transformation: {image: {resize: {fit: clip, width: $sm}}, document: {output: {format: webp}}}
@@ -156,7 +156,7 @@ export const aboutQuery = gql`
 
 export const postsQuery = gql`
     query GetPosts($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!) {
-        posts {
+        posts(orderBy: date_DESC) {
             date
             slug
             tags
@@ -252,7 +252,7 @@ export const configQuery = gql`
 
 export const socialsQuery = gql`
     query getSocials {
-        socials {
+        socials(orderBy: index_ASC) {
             title
             url
             icon

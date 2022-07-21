@@ -47,16 +47,14 @@
 	<meta name="twitter:title" content={commercial.name} />
 </svelte:head>
 
-<section class="w-screen-lg mx-auto">
     <h1 class="uppercase text-2xl text-black text-center font-headings pb-4">{commercial.name}</h1>
     <p class="mb-6 text-center">{@html marked(commercial.description.markdown)}</p>
 
-    {#if !currentRoute.includes('wedding')}
+    {#if !currentRoute.includes('wedding') && clients.length >= 1}
         <Clients {clients}/>
     {/if}
     {#each commercial.image as image, i}
         <Figure css="transition-opacity group-hover:opacity-50 pb-6" alt={commercial.name} img={image} sm md lg xl xxl width={image.width} height={image.height} i={i}/>
     {/each}
-</section>
 
 

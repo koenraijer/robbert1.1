@@ -33,7 +33,7 @@
 </svelte:head>
 
 <article class="prose mx-auto text-base prose-headings:font-normal mb-8">
-    <Figure css="transition-opacity group-hover:opacity-50 pb-2" alt={post.title} img={post.coverImage} width={post.coverImage.width} height={post.coverImage.height} i="0"/>
+    <Figure css="pb-2 w-full h-full" alt={post.title} img={post.coverImage} width={post.coverImage.width} height={post.coverImage.height} i="0"/>
     <time title="Date first published" class="text-gray-500 text-sm font-header uppercase" datetime="{post.date}">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
     <h1 class="!text-2xl">{post.title}</h1>
     {@html marked(post.content.markdown)}

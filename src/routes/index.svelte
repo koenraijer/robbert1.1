@@ -2,10 +2,6 @@
     import Figure from '$lib/components/Figure.svelte'
     import {config} from '$lib/js/stores'
     export let projects
-
-    projects.sort(function(a,b) {
-        return a.index > b.index;
-    })
     
 </script>
 
