@@ -7,19 +7,22 @@
 	let show_success_message = false; 
 	let show_user_instructions = false;
 	let user_instructions
-
+	let form;
 	async function submit_form() {
 		const res = await fetch('./api/send_message.json', {
 			method: 'POST',
 			body: JSON.stringify({name: name, email: email, message: message})
 		})
-		if(res.ok) {
+
+		form.submit();
+		
+		if(res.ok && res2.ok){
 			show_success_message = true;
 			name = ""
 			email = ""
 			message = ""
 		}
-		if (!res.ok) {
+		if (!res.ok || !res2.ok) {
 			const response = await res.text()
 			console.log(response)
 			show_user_instructions = true
@@ -37,7 +40,10 @@
 <div class="prose mx-auto">
     <h1 class="p-0 m-0 !text-2xl">Contact</h1>
     <p class="pb-6">{@html marked(contactText.content.markdown)}</p>
-	<form method="POST">
+	<form bind:this={form} action="https://formsapi.jabwn.com/key/7jVUo8g3vfB22j8Dt5BW" method="post">
+		<!--<input type="hidden" name="_after" value="http://robbertlalisang.com/">-->
+		<input type="hidden" name="_confirmation" value="Thank you! We have received your message and will get back to you asap.">
+		<input type="hidden" name="_subject" value="New form submitted">
 		<div class="relative z-0 mb-8 w-full group">
 			<input bind:value={name} type="text" name="floating_name" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-focus peer" placeholder=" " required />
 			<label for="floating_name" class="absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
@@ -50,7 +56,8 @@
 			<textarea bind:value={message} use:autoresize type="text" name="floating_message" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-primary-focus peer" placeholder=" " required />
 			<label for="floating_message" class="absolute text-sm text-gray-500  duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Message</label>
 		</div>
-		<button on:click|preventDefault={submit_form} type="submit" class="btn btn-outline btn-primary">Submit</button>
+		<button type="submit" class="btn btn-outline btn-primary">Submit</button>
+		<input type="text" name="_honey" value="" style="display:none">
 		{#if show_success_message}
 			<span>You've successfully submitted the message!</span>
 		{:else if show_user_instructions}
@@ -60,6 +67,7 @@
 </div>
 
 <!--
+	7jVUo8g3vfB22j8Dt5BW
 	- Capture form values on contact page. 
 	- POST request to `send_message.js` with form values as params_obj.Contact
 	- Inside `send_message.js`, decode params_obj, then use `messageQuery` to create a new message.

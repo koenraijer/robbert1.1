@@ -176,7 +176,7 @@
     </div>
 
     <!-- Area for social media icons -->
-    <div class="w-fit mx-auto md:ml-0 md:mr-auto flex-row row-nowrap justify-center">
+    <div class="w-fit mx-auto md:ml-0 md:mr-auto">
         <Socials navbar />
     </div>
 </aside>
