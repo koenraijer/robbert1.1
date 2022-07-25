@@ -1,5 +1,5 @@
 import {client} from '$lib/js/graphql-client'
-import {commercialsQuery, clientsQuery} from '$lib/js/graphql-queries'
+import {weddingsQuery} from '$lib/js/graphql-queries'
 import {browser} from '$app/env'
 
 export async function get() {
@@ -11,17 +11,13 @@ export async function get() {
             let xxl = 1536;
             
             const variables = {sm, md, lg, xl, xxl}
-            const width = {width: md}
-            const res = await client.request(commercialsQuery, variables).catch(err => console.log(err))
-
-            const res2 = await client.request(clientsQuery, width).catch(err => console.log(err))
-
-            const {clients} = res2
-            const  {commercials} = res
+    
+            const res = await client.request(weddingsQuery, variables).catch(err => console.log(err))
+            const  {weddings} = res
             
             return { 
                 body: { 
-                    commercials, clients, sm, md, lg, xl, xxl
+                    weddings, sm, md, lg, xl, xxl
                 }
             }
                 

@@ -18,16 +18,10 @@
         {
             title: 'Commercial',
             url: '/commercial',
-            navigation: [
-                {
-                    title: 'Wedding',
-                    url: '/commercial/wedding'
-                },
-                {
-                    title: 'Product',
-                    url: '/commercial/product'
-                }
-            ]
+        },
+        {
+            title: 'Wedding',
+            url: '/wedding',
         },
         {
             title: 'Blog',
@@ -51,12 +45,14 @@
         if(open)
             return open = !open;
     }
+
+    const max_w = "max-w-screen-lg  xl:max-w-screen-xl"
 </script>
 
 {#if scroll_up && page_offset > 0}
     <nav in:fade="{{ duration: 150 }}" use:clickOutside on:click_outside={handle_click} class="py-2 sm:py-4 sm:pt-5 w-full !z-100 {scroll_up && page_offset > 0 ? "fixed w-full bg-white !z-50 top-0" : "hidden"} pr-12">
         <!-- Navbar content --> 
-        <div class="max-w-screen-xl xl:max-w-screen-2xl flex flex-row flex-nowrap justify-between place-items-center mx-auto">
+        <div class="{max_w} flex flex-row flex-nowrap justify-between place-items-center mx-auto">
                         <!-- Title -->
                         <div class="w-fit">
                             <a href="{navigation[0].url}"><Title {scroll_up} {page_offset}/></a>
@@ -100,7 +96,7 @@
 
 <nav use:clickOutside on:click_outside={handle_click} class="py-2 sm:py-4 sm:pt-5 !z-100 text-primary flex place-items-stretch">
     <!-- Navbar content -->
-    <div class="max-w-screen-xl xl:max-w-screen-2xl flex flex-row flex-nowrap justify-between mx-auto place-items-center !w-full">
+    <div class="{max_w} flex flex-row flex-nowrap justify-between mx-auto place-items-center !w-full">
         <!-- Title -->
         <div class="w-fit">
             <a href="{navigation[0].url}"><Title {scroll_up} {page_offset}/></a>

@@ -62,8 +62,70 @@ export const projectQuery = gql`
     }
 `
 
+export const weddingsQuery = gql`
+    query GetWeddings($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!) {
+        weddings(orderBy: index_ASC) {
+            image {
+                sm: url(
+                    transformation: {image: {resize: {fit: clip, width: $sm}}, document: {output: {format: webp}}}
+                )
+                md: url(
+                    transformation: {image: {resize: {fit: clip, width: $md}}, document: {output: {format: webp}}}
+                )
+                lg: url(
+                    transformation: {image: {resize: {fit: clip, width: $lg}}, document: {output: {format: webp}}}
+                )
+                xl: url(
+                    transformation: {image: {resize: {fit: clip, width: $xl}}, document: {output: {format: webp}}}
+                )
+                xxl: url(
+                    transformation: {image: {resize: {fit: clip, width: $xxl}}, document: {output: {format: webp}}}
+                )
+                height
+                width
+            }
+            slug
+            name
+            index
+            coverImage
+        }
+    }
+`
+
+export const weddingQuery = gql`
+    query GetWedding($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!, $slug: String!) {
+        wedding(where: {slug: $slug}) {
+            colNum
+            name
+            slug
+            description {
+                markdown
+            }
+            image {
+                sm: url(
+                    transformation: {image: {resize: {fit: clip, width: $sm}}, document: {output: {format: webp}}}
+                )
+                md: url(
+                    transformation: {image: {resize: {fit: clip, width: $md}}, document: {output: {format: webp}}}
+                )
+                lg: url(
+                    transformation: {image: {resize: {fit: clip, width: $lg}}, document: {output: {format: webp}}}
+                )
+                xl: url(
+                    transformation: {image: {resize: {fit: clip, width: $xl}}, document: {output: {format: webp}}}
+                )
+                xxl: url(
+                    transformation: {image: {resize: {fit: clip, width: $xxl}}, document: {output: {format: webp}}}
+                )
+                height
+                width
+            }
+        }
+    }
+`
+
 export const commercialsQuery = gql`
-    query GetCommercials($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!) {
+    query GetWeddings($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!) {
         commercials(orderBy: index_ASC) {
             image {
                 sm: url(
@@ -81,12 +143,11 @@ export const commercialsQuery = gql`
                 xxl: url(
                     transformation: {image: {resize: {fit: clip, width: $xxl}}, document: {output: {format: webp}}}
                 )
+                height
+                width
             }
             slug
             name
-            description {
-                markdown
-            }
             index
             coverImage
         }
@@ -94,8 +155,9 @@ export const commercialsQuery = gql`
 `
 
 export const commercialQuery = gql`
-    query GetCommercial($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!, $slug: String!) {
+    query GetWedding($sm: Int!, $md: Int!, $lg: Int!, $xl: Int!, $xxl: Int!, $slug: String!) {
         commercial(where: {slug: $slug}) {
+            colNum
             name
             slug
             description {

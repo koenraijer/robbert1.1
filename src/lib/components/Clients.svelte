@@ -44,7 +44,7 @@
    */
 </script>
 
-<div class="flex flex-col w-screen-lg border-opacity-50 py-8 my-8">
+<div class="flex flex-col w-full border-opacity-50 py-8 my-8">
     <h2 class="divider font-header uppercase text-base">Partnered with</h2>
     <div class="flex flex-row flex-nowrap justify-between max-w-screen">
         {#each clients_grouped as clients_group, i}

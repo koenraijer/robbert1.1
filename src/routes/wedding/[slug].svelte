@@ -1,6 +1,6 @@
 <script context="module">
     import {client} from '$lib/js/graphql-client'
-    import {commercialQuery} from '$lib/js/graphql-queries'
+    import {weddingQuery} from '$lib/js/graphql-queries'
     export const load = async ({ params }) => {
         const {slug} = params
 
@@ -12,9 +12,9 @@
 
         const variables = {sm, md, lg, xl, xxl, slug}
 
-        const {commercial} = await client.request(commercialQuery, variables)
+        const {wedding} = await client.request(weddingQuery, variables)
 
-        const project = commercial
+        const project = wedding
         return {
             props: {
                 project, sm, md, lg, xl, xxl
