@@ -50,7 +50,7 @@
 </script>
 
 {#if scroll_up && page_offset > 0}
-    <nav in:fade="{{ duration: 150 }}" use:clickOutside on:click_outside={handle_click} class="py-3 sm:py-7 w-full !z-100 {scroll_up && page_offset > 0 ? "fixed w-full bg-white !z-50 top-0" : "hidden"} pr-12">
+    <nav in:fade="{{ duration: 150 }}" use:clickOutside on:click_outside={handle_click} class="py-3 pt-2 sm:py-7 sm:pt-6 w-full !z-100 {scroll_up && page_offset > 0 ? "fixed w-full bg-white !z-50 top-0" : "hidden"} pr-12">
         <!-- Navbar content --> 
         <div class="{max_w} flex flex-row flex-nowrap justify-between place-items-center mx-auto">
                         <!-- Title -->
@@ -94,7 +94,7 @@
     </nav>
 {/if}
 
-<nav use:clickOutside on:click_outside={handle_click} class="py-3 sm:py-7 !z-100 text-primary flex place-items-stretch">
+<nav use:clickOutside on:click_outside={handle_click} class="py-3 pt-2 sm:py-7 sm:pt-6 !z-100 text-primary flex place-items-stretch">
     <!-- Navbar content -->
     <div class="{max_w} flex flex-row flex-nowrap justify-between mx-auto place-items-center !w-full">
         <!-- Title -->
