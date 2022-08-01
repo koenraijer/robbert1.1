@@ -1,8 +1,8 @@
 <script>
     import { browser } from '$app/env'; 
     import Figure from '$lib/components/Figure.svelte'
-    import {seo, config, pageInfo} from '$lib/js/stores'
-    export let projects
+    import {seo, config} from '$lib/js/stores'
+    export let projects, pageInfo
 
 </script>
 

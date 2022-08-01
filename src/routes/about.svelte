@@ -1,14 +1,15 @@
 <script>
     import {marked} from 'marked';
     import Figure from '$lib/components/Figure.svelte';
-    import {config} from '$lib/js/stores'
+    import {config, pageInfo} from '$lib/js/stores'
+    import {browser} from '$app/env'
     export let about;
 
+    $: console.log($pageInfo)
 </script>
-
 <svelte:head>
     <link rel="preload" as="image" href="{about.picture.xxl}" imagesrcset="{about.picture.sm} {$config.image_sizes.sm}, {about.picture.md} {$config.image_sizes.md}, {about.picture.lg} {$config.image_sizes.lg}, {about.picture.xl} {$config.image_sizes.xl}, {about.picture.xxl} {$config.image_sizes.xxl}" imagesizes="50vw">
-    <title>{about.pageTitle}</title>
+    <title>{$pageInfo.about.title}</title>
 	<meta name="description" content="Robbert Lalisang Photography - About page." />
 
 	<!--Facebook-->

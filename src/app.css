@@ -64,6 +64,11 @@
 }
 
 @layer components {
+    body {
+        overflow-wrap: break-word;
+        hyphens: manual;
+    }
+    
     p {
         @apply font-body;
     }
