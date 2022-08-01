@@ -42,7 +42,7 @@
             return open = !open;
     }
 
-    const max_w = "max-w-screen-lg  xl:max-w-none px-24"
+    const max_w = "max-w-screen-lg xl:max-w-screen-2xl"
 </script>
 
 {#if scroll_up && page_offset > 0}
