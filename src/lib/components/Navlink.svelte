@@ -4,7 +4,7 @@
     $: active = $page.url.pathname === href
   </script>
   
-  <a sveltekit:prefetch {href} class:active class="{css} w-fit" tabindex="{tabindex}">
+  <a sveltekit:prefetch {href} class:active class="{css} w-fit uppercase" tabindex="{tabindex}">
     <slot />
   </a>
   

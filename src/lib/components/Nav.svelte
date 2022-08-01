@@ -46,11 +46,11 @@
             return open = !open;
     }
 
-    const max_w = "max-w-screen-lg  xl:max-w-screen-xl"
+    const max_w = "max-w-screen-lg xl:max-w-screen-2xl"
 </script>
 
 {#if scroll_up && page_offset > 0}
-    <nav in:fade="{{ duration: 150 }}" use:clickOutside on:click_outside={handle_click} class="py-4 w-full !z-100 {scroll_up && page_offset > 0 ? "fixed w-full bg-white !z-50 top-0" : "hidden"} pr-12">
+    <nav in:fade="{{ duration: 150 }}" use:clickOutside on:click_outside={handle_click} class="py-3 sm:py-7 w-full !z-100 {scroll_up && page_offset > 0 ? "fixed w-full bg-white !z-50 top-0" : "hidden"} pr-12">
         <!-- Navbar content --> 
         <div class="{max_w} flex flex-row flex-nowrap justify-between place-items-center mx-auto">
                         <!-- Title -->
@@ -59,7 +59,7 @@
                         </div>
             
                         <!-- Menu items -->
-                        <div class="hidden lg:flex text-base flex-row row-nowrap">
+                        <div class="hidden lg:flex text-base flex-row row-nowrap transform -translate-y-1">
                         <ul class="flex flex-row row-nowrap justify-start">
                             {#each navigation as item}
                                 {#if item.navigation}
@@ -94,7 +94,7 @@
     </nav>
 {/if}
 
-<nav use:clickOutside on:click_outside={handle_click} class="py-4 !z-100 text-primary flex place-items-stretch">
+<nav use:clickOutside on:click_outside={handle_click} class="py-3 sm:py-7 !z-100 text-primary flex place-items-stretch">
     <!-- Navbar content -->
     <div class="{max_w} flex flex-row flex-nowrap justify-between mx-auto place-items-center !w-full">
         <!-- Title -->
@@ -103,7 +103,7 @@
         </div>
 
         <!-- Menu items -->
-        <div class="hidden lg:flex text-base flex-row row-nowrap">
+        <div class="hidden lg:flex text-base flex-row row-nowrap transform -translate-y-1">
         <ul class="flex flex-row row-nowrap justify-start">
             {#each navigation as item}
                 {#if item.navigation}
