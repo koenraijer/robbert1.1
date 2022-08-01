@@ -35,22 +35,4 @@
     {@html $seo.logoSvg}
 </div>
 
-<!--
-<h1 class="font-header capitalize font-[500] {scroll_up && page_offset > 10 ? "text-xl !leading-7" : "!leading-6 md:!leading-7 text-xl"} w-fit title text-primary h-fit">
-    <span class="flex flex-row justify-between">
-        {#each first_name_chars as char}
-            <span class="mr-1">{char}</span>
-        {/each}
-    </span>
-    <span class="flex flex-row justify-between">
-        {#each last_name_chars as char}
-            <span class="mr-1">{char}</span>
-        {/each}
-    </span>
-    <span class="flex flex-row justify-between transform -translate-x-[0.15rem] text-black">
-        {#each photography_chars as char}
-            <span class="text-xs mx-[0.25rem]">{char}</span>
-        {/each}
-    </span>
-</h1>
--->
+
