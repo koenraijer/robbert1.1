@@ -30,6 +30,7 @@
     })  
 
 </script>
+
 <div class="h-16 sm:h-24 w-auto">
     {@html $seo.logoSvg}
 </div>

@@ -1,5 +1,5 @@
 import {client} from '$lib/js/graphql-client'
-import {socialsQuery, navigationQuery, configQuery, projectsQuery} from '$lib/js/graphql-queries'
+import {socialsQuery, navigationQuery, configQuery, pageInfoQuery} from '$lib/js/graphql-queries'
 import {writable} from 'svelte/store'
 import {browser} from '$app/env'
 
@@ -46,6 +46,11 @@ export const socials = writable([], (set) => {
 export const nav = writable([], (set) => { 
   client.request(navigationQuery)
     .then(res => set(res.navigation.items))
+ });
+
+ export const pageInfo = writable([], (set) => { 
+  client.request(pageInfoQuery)
+    .then(res => set(res.pageinfo))
  });
   // https://codepen.io/shshaw/post/responsive-placeholder-image
 

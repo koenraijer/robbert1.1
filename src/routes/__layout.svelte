@@ -44,7 +44,7 @@
 	<meta name="description" content={$seo.description} />
 
 	<!--Facebook-->
-	<meta property="og:image" content={$config.OG_image} />
+	<meta property="og:image" content={$seo.ogImageUrl} />
 	<meta property="og:description" content={$seo.description} />
 	<meta property="og:title" content={$seo.title} />
 
@@ -56,9 +56,6 @@
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
 	<link rel="manifest" href="/favicon/site.webmanifest">
-
-	<!--GoatCounter-->
-	<script data-goatcounter="https://koenraijer.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </svelte:head>
 
 <div class:overlay={$menu.open === true}></div>

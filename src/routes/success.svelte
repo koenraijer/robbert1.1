@@ -1,0 +1,10 @@
+<script>
+    import {marked} from 'marked';
+    export let contactContent;
+</script>
+
+<div class="prose mx-auto">
+    <h1 class="p-0 m-0 !text-2xl">{contactContent.formSuccessTitle}</h1>
+    <p class="pb-2">{@html marked(contactContent.formSuccessText.markdown)}</p>
+    <a href="/" class="no-underline py-2 text-primary px-3 hover:bg-primary transition-colors border-2 border-primary hover:text-white cursor-pointer" alt="Links to home">Go back</a>
+</div>

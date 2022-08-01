@@ -305,10 +305,10 @@ export const clientsQuery = gql`
 export const configQuery = gql`
     query GetConfig {
         configuration(where: {id: "cl3bj58r6y7kf0bui0x2s0p0d"}) {
-        domain
-        title
-        description
-        logoSvg
+            title
+            description
+            logoSvg
+            ogImageUrl
         }
     }
 `
@@ -332,13 +332,47 @@ export const navigationQuery = gql`
     }
 `
 
-export const contactTextQuery = gql`
-    query getContactText {
-        contactText(where: {id: "cl5nq8kulgj020dumejd4kwy1"}) {
-        id
-        content {
+export const contactContentQuery = gql`
+    query getContactContent {
+        contactContent(where: {id: "cl5nq8kulgj020dumejd4kwy1"}) {
+        formIntro {
             markdown
         }
+        formSuccessText {
+            markdown
+        }
+        formSuccessTitle
         }
     }
+`
+
+export const pageInfoQuery = gql`
+    query getPageInfo {
+        pageinfo(where: {id: "cl6arq1pr1gdo0btc13a1oz67"}) {
+        about {
+            title
+            description
+        }
+        blog {
+            title
+            description
+        }
+        commercial {
+            title
+            description
+        }
+        contact {
+            title
+            description
+        }
+        homepage {
+            description
+            title
+        }
+        wedding {
+            title
+            description
+        }
+        }
+  }
 `

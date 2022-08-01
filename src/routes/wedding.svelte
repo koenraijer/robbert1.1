@@ -1,14 +1,14 @@
 <script>
     import { browser } from '$app/env'; 
     import Figure from '$lib/components/Figure.svelte'
-    import {config} from '$lib/js/stores'
+    import {config, seo} from '$lib/js/stores'
     export let weddings
 
 </script>
 
 <svelte:head>
     <link rel="preload" as="image" href="{weddings[0].image[weddings[0].coverImage - 1].xxl}" imagesrcset="{weddings[0].image[weddings[0].coverImage - 1].sm} {$config.image_sizes.sm}, {weddings[0].image[weddings[0].coverImage - 1].md} {$config.image_sizes.md}, {weddings[0].image[weddings[0].coverImage - 1].lg} {$config.image_sizes.lg}, {weddings[0].image[weddings[0].coverImage - 1].xl} {$config.image_sizes.xl}, {weddings[0].image[weddings[0].coverImage - 1].xxl} {$config.image_sizes.xxl}" imagesizes="100vw">
-    <title>Robbert Lalisang Photography</title>
+    <title>Wedding - {$seo.title}</title>
 	<meta name="description" content="Robbert Lalisang Photography - Homepage" />
 
 	<!--Facebook-->
@@ -17,7 +17,7 @@
 	<meta property="og:title" content={$config.title} />
 
 	<!--Twitter-->
-	<meta name="twitter:title" content={$config.title} />
+	<meta name="twitter:title" content="Wedding + {$seo.title}" />
 </svelte:head>
 
 {#each weddings as {slug, name, image, coverImage}, i} 

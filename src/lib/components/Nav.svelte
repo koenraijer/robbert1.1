@@ -50,7 +50,7 @@
 </script>
 
 {#if scroll_up && page_offset > 0}
-    <nav in:fade="{{ duration: 150 }}" use:clickOutside on:click_outside={handle_click} class="py-2 sm:py-4 sm:pt-5 w-full !z-100 {scroll_up && page_offset > 0 ? "fixed w-full bg-white !z-50 top-0" : "hidden"} pr-12">
+    <nav in:fade="{{ duration: 150 }}" use:clickOutside on:click_outside={handle_click} class="py-4 w-full !z-100 {scroll_up && page_offset > 0 ? "fixed w-full bg-white !z-50 top-0" : "hidden"} pr-12">
         <!-- Navbar content --> 
         <div class="{max_w} flex flex-row flex-nowrap justify-between place-items-center mx-auto">
                         <!-- Title -->
@@ -94,7 +94,7 @@
     </nav>
 {/if}
 
-<nav use:clickOutside on:click_outside={handle_click} class="py-2 sm:py-4 sm:pt-5 !z-100 text-primary flex place-items-stretch">
+<nav use:clickOutside on:click_outside={handle_click} class="py-4 !z-100 text-primary flex place-items-stretch">
     <!-- Navbar content -->
     <div class="{max_w} flex flex-row flex-nowrap justify-between mx-auto place-items-center !w-full">
         <!-- Title -->
@@ -139,7 +139,7 @@
 
 <!--Sidebar content-->
 {#if open}
-<aside in:fly="{{ x: 100, duration: 300 }}" out:fly="{{ x: 100, duration: 300 }}" class="bg-base-100 fixed {open ? "right-0" : "-right-full"} lg:hidden w-full md:w-2/6 md:text-left text-center h-screen top-0 p-4 sm:p-6 !z-[52] flex flex-col min-h-screen">
+<aside in:fly="{{ x: 100, duration: 300 }}" out:fly="{{ x: 100, duration: 300 }}" class="text-primary bg-base-100 fixed {open ? "right-0" : "-right-full"} lg:hidden w-full md:w-2/6 md:text-left text-center h-screen top-0 p-4 sm:p-6 !z-[52] flex flex-col min-h-screen">
 
     <!-- Sidebar header -->
     <div class="flex flex-row row-nowrap justify-between mb-8">
@@ -176,7 +176,7 @@
     </div>
 
     <!-- Area for social media icons -->
-    <div class="w-fit mx-auto md:ml-0 md:mr-auto mb-10">
+    <div class="w-fit mx-auto md:ml-0 md:mr-auto md:pb-0 pb-20">
         <Socials navbar />
     </div>
 </aside>
