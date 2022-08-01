@@ -20,7 +20,7 @@
 	<meta name="twitter:title" content={$config.title} />
 </svelte:head>
 
-<article class="prose mx-auto text-sm">
+<article class="prose mx-auto text-base">
     <Figure css="object-cover w-5/6" alt={about.pageTitle} img={about.picture} width={about.picture.width} height={about.picture.height}/>
     <h1 class="!text-2xl mb-2 !py-0">{about.pageTitle}</h1>
 

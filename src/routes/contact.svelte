@@ -22,7 +22,7 @@
 
 <div class="prose mx-auto">
     <h1 class="p-0 m-0 !text-2xl">Contact</h1>
-    <p class="pb-6">{@html marked(contactContent.formIntro.markdown)}</p>
+    <p class="pb-6 text-base">{@html marked(contactContent.formIntro.markdown)}</p>
 	<form action="https://formsapi.jabwn.com/key/7jVUo8g3vfB22j8Dt5BW" method="post">
 		<input type="hidden" name="_after" value="http://robbertlalisang.com/success">
 		<input type="hidden" name="_confirmation" value="Thank you! We have received your message and will get back to you asap.">

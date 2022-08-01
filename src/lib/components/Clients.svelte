@@ -73,7 +73,7 @@
    - 
    */
 </script>
-
+{#if clients}
 <div class="w-full border-opacity-50 py-8 my-8 overflow-hidden">
     <h2 class="divider font-header uppercase text-base text-primary">Partnered with</h2>
     <div class="flex flex-row flex-nowrap justify-between max-w-screen !overflow-hidden">
@@ -103,4 +103,5 @@
     </div>
     <div class="divider"></div>
 </div>
+{/if}
 
