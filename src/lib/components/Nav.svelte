@@ -16,10 +16,6 @@
             url: '/',
         },
         {
-            title: 'Commercial',
-            url: '/commercial',
-        },
-        {
             title: 'Wedding',
             url: '/wedding',
         },

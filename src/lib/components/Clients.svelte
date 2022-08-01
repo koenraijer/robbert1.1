@@ -10,7 +10,7 @@
     let l = 0;
 
     (async function() {
-        await new Promise(r => setTimeout(r, 1000));
+        await new Promise(r => setTimeout(r, 3000));
         if(j >= 2) {
             j = 0
         } else {
@@ -19,7 +19,7 @@
     })(); 
 
     (async function() {
-        await new Promise(r => setTimeout(r, 3000));
+        await new Promise(r => setTimeout(r, 5000));
         if(k >= 2) {
             k = 0
         } else {
@@ -28,7 +28,7 @@
     })(); 
 
     (async function() {
-        await new Promise(r => setTimeout(r, 5000));
+        await new Promise(r => setTimeout(r, 7000));
         if(l >= 2) {
             l = 0
         } else {
@@ -44,7 +44,7 @@
             j += 1
         }
     }, 6000);
-    }, 1000)
+    }, 3000)
 
 
     setTimeout(() => {
@@ -55,7 +55,7 @@
                 k += 1
             }
         }, 6000);
-    }, 3000)
+    }, 5000)
 
     setTimeout(() => {
         setInterval(() => {
@@ -65,7 +65,7 @@
                 l += 1
             }
         }, 6000);
-    }, 5000)
+    }, 7000)
     
    /* 
    - You need to tell the next item when to start, based on the on:outroend event.
