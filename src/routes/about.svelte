@@ -1,24 +1,22 @@
 <script>
     import {marked} from 'marked';
     import Figure from '$lib/components/Figure.svelte';
-    import {config, pageInfo} from '$lib/js/stores'
+    import {config} from '$lib/js/stores'
     import {browser} from '$app/env'
-    export let about;
+    export let about, pageinfo
 
-    $: console.log($pageInfo)
 </script>
 <svelte:head>
     <link rel="preload" as="image" href="{about.picture.xxl}" imagesrcset="{about.picture.sm} {$config.image_sizes.sm}, {about.picture.md} {$config.image_sizes.md}, {about.picture.lg} {$config.image_sizes.lg}, {about.picture.xl} {$config.image_sizes.xl}, {about.picture.xxl} {$config.image_sizes.xxl}" imagesizes="50vw">
-    <title>{$pageInfo.about.title}</title>
-	<meta name="description" content="Robbert Lalisang Photography - About page." />
+    <title>{pageinfo.about.title}</title>
+	<meta name="description" content={pageinfo.about.description}/>
 
 	<!--Facebook-->
-	<meta property="og:image" content={$config.OG_image} />
-	<meta property="og:description" content={$config.descr} />
-	<meta property="og:title" content={$config.title} />
+	<meta property="og:description" content={pageinfo.about.description} />
+	<meta property="og:title" content={pageinfo.about.title} />
 
 	<!--Twitter-->
-	<meta name="twitter:title" content={$config.title} />
+	<meta name="twitter:title" content={pageinfo.about.title} />
 </svelte:head>
 
 <article class="prose mx-auto text-base">

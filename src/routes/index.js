@@ -14,12 +14,12 @@ export async function get() {
     
             const res = await client.request(projectsQuery, variables).catch(err => console.log(err))
             const res2 = await client.request(pageInfoQuery).catch(err => console.log(err))
-            const {pageInfo} = res2
+            const {pageinfo} = res2
             const  {projects} = res
             
             return { 
                 body: { 
-                    projects, sm, md, lg, xl, xxl, pageInfo
+                    projects, sm, md, lg, xl, xxl, pageinfo
                 }
             }
                 

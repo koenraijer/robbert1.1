@@ -30,6 +30,15 @@
 
 <svelte:head>
     <link rel="preload" as="image" href="{post.coverImage.xxl}" imagesrcset="{post.coverImage.sm} {$config.image_sizes.sm}, {post.coverImage.md} {$config.image_sizes.md}, {post.coverImage.lg} {$config.image_sizes.lg}, {post.coverImage.xl} {$config.image_sizes.xl}, {post.coverImage.xxl} {$config.image_sizes.xxl}" imagesizes="50vw">
+    <title>{post.title} - Robbert Lalisang Photography</title>
+	<meta name="description" content={post.snippet}/>
+
+	<!--Facebook-->
+	<meta property="og:description" content={post.snippet} />
+	<meta property="og:title" content="{post.title} - Robbert Lalisang Photography" />
+
+	<!--Twitter-->
+	<meta name="twitter:title" content="{post.title} - Robbert Lalisang Photography" />
 </svelte:head>
 
 <article class="prose mx-auto text-sm sm:text-base prose-headings:font-normal mb-8">

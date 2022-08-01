@@ -1,22 +1,21 @@
 <script>
     import Figure from '$lib/components/Figure.svelte'
     import Clients from '$lib/components/Clients.svelte'
-    import {config} from '$lib/js/stores'
-    export let commercials, clients
+    import {config, seo} from '$lib/js/stores'
+    export let commercials, clients, pageinfo
 </script>
 
 <svelte:head>
     <link rel="preload" as="image" href="{commercials[0].image[commercials[0].coverImage - 1].xxl}" imagesrcset="{commercials[0].image[commercials[0].coverImage - 1].sm} {$config.image_sizes.sm}, {commercials[0].image[commercials[0].coverImage - 1].md} {$config.image_sizes.md}, {commercials[0].image[commercials[0].coverImage - 1].lg} {$config.image_sizes.lg}, {commercials[0].image[commercials[0].coverImage - 1].xl} {$config.image_sizes.xl}, {commercials[0].image[commercials[0].coverImage - 1].xxl} {$config.image_sizes.xxl}" imagesizes="100vw">
-    <title>Robbert Lalisang Photography</title>
-	<meta name="description" content="Robbert Lalisang Photography - Homepage" />
+    <title>{pageinfo.commercial.title}</title>
+	<meta name="description" content={pageinfo.commercial.description}/>
 
 	<!--Facebook-->
-	<meta property="og:image" content={$config.OG_image} />
-	<meta property="og:description" content={$config.descr} />
-	<meta property="og:title" content={$config.title} />
+	<meta property="og:description" content={pageinfo.commercial.description} />
+	<meta property="og:title" content={pageinfo.commercial.title} />
 
 	<!--Twitter-->
-	<meta name="twitter:title" content={$config.title} />
+	<meta name="twitter:title" content={pageinfo.commercial.title} />
 </svelte:head>
 
 <Clients {clients}/>

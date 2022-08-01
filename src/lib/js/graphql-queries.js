@@ -58,6 +58,7 @@ export const projectQuery = gql`
                 height
                 width
             }
+            seoDescription
         }
     }
 `
@@ -120,6 +121,7 @@ export const weddingQuery = gql`
                 height
                 width
             }
+            seoDescription
         }
     }
 `
@@ -182,6 +184,7 @@ export const commercialQuery = gql`
                 height
                 width
             }
+            seoDescription
         }
     }
 `
@@ -370,6 +373,10 @@ export const pageInfoQuery = gql`
             title
         }
         wedding {
+            title
+            description
+        }
+        success {
             title
             description
         }

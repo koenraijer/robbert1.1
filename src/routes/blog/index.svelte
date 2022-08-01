@@ -1,11 +1,20 @@
 <script>
-    export let posts;
+    export let posts, pageinfo;
     import Figure from '$lib/components/Figure.svelte'
     import {config} from '$lib/js/stores'
 </script>
 
 <svelte:head>
     <link rel="preload" as="image" href="{posts[0].coverImage.xxl}" imagesrcset="{posts[0].coverImage.sm} {$config.image_sizes.sm}, {posts[0].coverImage.md} {$config.image_sizes.md}, {posts[0].coverImage.xl} {$config.image_sizes.xl}, {posts[0].coverImage.xxl} {$config.image_sizes.xxl}" imagesizes="50vw">
+    <title>{pageinfo.blog.title}</title>
+	<meta name="description" content={pageinfo.blog.description}/>
+
+	<!--Facebook-->
+	<meta property="og:description" content={pageinfo.blog.description} />
+	<meta property="og:title" content={pageinfo.blog.title} />
+
+	<!--Twitter-->
+	<meta name="twitter:title" content={pageinfo.blog.title} />
 </svelte:head>
 
 <div class="max-w-[65ch] mx-auto text-base mb-8">

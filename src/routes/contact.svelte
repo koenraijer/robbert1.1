@@ -1,22 +1,22 @@
 <script>
 	import {autoresize} from 'svelte-textarea-autoresize'
-	export let contactContent;
+	export let contactContent, pageinfo
 	import {marked} from 'marked';
 	import {seo} from '$lib/js/stores'
-	let name, email, message;
+	let name, email, message
 </script>
 
 <svelte:head>
-	<title>Contact - {$seo.title}</title>
-	<meta name="description" content="{$seo.description}" />
+    <title>{pageinfo.contact.title}</title>
+	<meta name="description" content={pageinfo.contact.description}/>
 
 	<!--Facebook-->
 	<meta property="og:image" content={$seo.ogImageUrl} />
-	<meta property="og:description" content={$seo.description} />
-	<meta property="og:title" content={$seo.title} />
+	<meta property="og:description" content={pageinfo.contact.description} />
+	<meta property="og:title" content={pageinfo.contact.title} />
 
 	<!--Twitter-->
-	<meta name="twitter:title" content={$seo.title} />
+	<meta name="twitter:title" content={pageinfo.contact.title} />
 </svelte:head>
 
 

@@ -1,5 +1,5 @@
 import {client} from '$lib/js/graphql-client'
-import {weddingsQuery} from '$lib/js/graphql-queries'
+import {weddingsQuery, pageInfoQuery} from '$lib/js/graphql-queries'
 import {browser} from '$app/env'
 
 export async function get() {
@@ -14,10 +14,12 @@ export async function get() {
     
             const res = await client.request(weddingsQuery, variables).catch(err => console.log(err))
             const  {weddings} = res
+            const res2 = await client.request(pageInfoQuery).catch(err => console.log(err))
+            const {pageinfo} = res2
             
             return { 
                 body: { 
-                    weddings, sm, md, lg, xl, xxl
+                    weddings, sm, md, lg, xl, xxl, pageinfo
                 }
             }
                 

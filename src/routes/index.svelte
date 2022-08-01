@@ -2,24 +2,22 @@
     import { browser } from '$app/env'; 
     import Figure from '$lib/components/Figure.svelte'
     import {seo, config} from '$lib/js/stores'
-    export let projects, pageInfo
+    export let projects, pageinfo
 
 </script>
 
 <svelte:head>
     <link rel="preload" as="image" href="{projects[0].image[projects[0].coverImage - 1].xxl}" imagesrcset="{projects[0].image[projects[0].coverImage - 1].sm} {$config.image_sizes.sm}, {projects[0].image[projects[0].coverImage - 1].md} {$config.image_sizes.md}, {projects[0].image[projects[0].coverImage - 1].lg} {$config.image_sizes.lg}, {projects[0].image[projects[0].coverImage - 1].xl} {$config.image_sizes.xl}, {projects[0].image[projects[0].coverImage - 1].xxl} {$config.image_sizes.xxl}" imagesizes="100vw">
-    <title>{$seo.title}</title>
-	<meta name="description" content="Robbert Lalisang Photography"/>
-
-	<meta name="description" content={$seo.description} />
+    <title>{pageinfo.homepage.title}</title>
+	<meta name="description" content={pageinfo.homepage.description}/>
 
 	<!--Facebook-->
 	<meta property="og:image" content={$seo.ogImageUrl} />
-	<meta property="og:description" content={$seo.description} />
-	<meta property="og:title" content={$seo.title} />
+	<meta property="og:description" content={pageinfo.homepage.description} />
+	<meta property="og:title" content={pageinfo.homepage.title} />
 
 	<!--Twitter-->
-	<meta name="twitter:title" content={$seo.title} />
+	<meta name="twitter:title" content={pageinfo.homepage.title} />
 </svelte:head>
 
 {#each projects as {slug, name, image, coverImage}, i} 

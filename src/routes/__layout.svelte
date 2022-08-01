@@ -40,16 +40,8 @@
 </script>
 
 <svelte:head>	
-	<title>{$seo.title}</title>
-	<meta name="description" content={$seo.description} />
-
 	<!--Facebook-->
 	<meta property="og:image" content={$seo.ogImageUrl} />
-	<meta property="og:description" content={$seo.description} />
-	<meta property="og:title" content={$seo.title} />
-
-	<!--Twitter-->
-	<meta name="twitter:title" content={$seo.title} />
 
 	<!--Favicons-->
 	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">

@@ -1,5 +1,5 @@
 import {client} from '$lib/js/graphql-client'
-import {postsQuery} from '$lib/js/graphql-queries'
+import {postsQuery, pageInfoQuery} from '$lib/js/graphql-queries'
 
 export async function get() {
         try {
@@ -12,10 +12,12 @@ export async function get() {
             const variables = {sm, md, lg, xl, xxl}
     
             const {posts} = await client.request(postsQuery, variables) 
+            const res2 = await client.request(pageInfoQuery).catch(err => console.log(err))
+            const {pageinfo} = res2
     
             return {
                 body: {
-                    posts, sm, md, lg, xl, xxl
+                    posts, sm, md, lg, xl, xxl, pageinfo
                 }
             }
         } catch (err) {
