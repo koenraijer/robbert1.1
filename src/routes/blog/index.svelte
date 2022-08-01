@@ -16,7 +16,7 @@
             <div class="flex flex-row w-full place-items-center">
                 <time title="Date first published" class="text-sm text-gray-400 w-fit font-header mx-auto uppercase text-center" datetime="{date}">{new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
             </div>
-            <p class="text-gray-600 text-center pb-6 pt-2 font-body text-base">{snippet}</p>
+            <p class="text-gray-600 text-center pb-6 pt-2 font-body text-sm sm:text-base">{snippet}</p>
             <div class="w-fit ml-auto mr-0">
                     <a href="/blog/{slug}" alt="{title}" class="group-hover:text-secondary-focus transition-colors text-sm font-header w-fit uppercase text-center mx-auto w-fit">
                         Read more
