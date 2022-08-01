@@ -13,10 +13,10 @@
         const variables = {sm, md, lg, xl, xxl, slug}
 
         const {project} = await client.request(projectQuery, variables)
-
+        const imagez = project.image
         return {
             props: {
-                project, sm, md, lg, xl, xxl
+                project, sm, md, lg, xl, xxl, imagez
             }
         }
     }
@@ -28,8 +28,8 @@
     import { browser } from '$app/env';
     export let project
 
-    const threePartIndex = Math.ceil(project.image.length / 3);
-    const twoPartIndex = Math.ceil(project.image.length / 2);
+    const threePartIndex = Math.round(project.image.length / 3);
+    const twoPartIndex = Math.round(project.image.length / 2);
     let images = project.image
 
     const secondOfTwo = images.slice().splice(-twoPartIndex);
@@ -37,8 +37,7 @@
 
     const thirdOfThree = images.splice(-threePartIndex);
     const secondOfThree = images.splice(-threePartIndex);
-    const firstOfThree = images.splice(0, threePartIndex); 
-
+    const firstOfThree = images.splice(0, project.image.length % 2 === 0 ? threePartIndex : threePartIndex + 1); 
 </script>
 
 <svelte:head>
@@ -136,21 +135,3 @@ Simple flex-row design
     </li>
 </ul>
 -->
-
-
-<style>
-    .grid--masonry {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, min(25em, 100%));
-        grid-template-rows: masonry;
-        justify-content: center;
-        grid-gap: 0.5rem;
-        padding: 0.5rem;
-    }
-
-li:last-child {
-  flex-grow: 10;
-}
-
- /* https://css-tricks.com/adaptive-photo-layout-with-flexbox/ */
-</style>

@@ -308,6 +308,7 @@ export const configQuery = gql`
         domain
         title
         description
+        logoSvg
         }
     }
 `

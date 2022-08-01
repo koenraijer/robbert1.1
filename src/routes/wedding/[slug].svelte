@@ -29,8 +29,8 @@
     import { browser } from '$app/env';
     export let project
 
-    const threePartIndex = Math.ceil(project.image.length / 3);
-    const twoPartIndex = Math.ceil(project.image.length / 2);
+    const threePartIndex = Math.round(project.image.length / 3);
+    const twoPartIndex = Math.round(project.image.length / 2);
     let images = project.image
 
     const secondOfTwo = images.slice().splice(-twoPartIndex);
@@ -38,7 +38,7 @@
 
     const thirdOfThree = images.splice(-threePartIndex);
     const secondOfThree = images.splice(-threePartIndex);
-    const firstOfThree = images.splice(0, threePartIndex); 
+    const firstOfThree = images.splice(0, project.image.length % 2 === 0 ? threePartIndex : threePartIndex + 1); 
 
 </script>
 
