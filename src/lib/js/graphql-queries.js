@@ -308,9 +308,6 @@ export const clientsQuery = gql`
 export const configQuery = gql`
     query GetConfig {
         configuration(where: {id: "cl3bj58r6y7kf0bui0x2s0p0d"}) {
-            title
-            description
-            logoSvg
             ogImageUrl
         }
     }

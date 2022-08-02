@@ -11,7 +11,6 @@
 	<meta name="description" content={pageinfo.contact.description}/>
 
 	<!--Facebook-->
-	<meta property="og:image" content={$seo.ogImageUrl} />
 	<meta property="og:description" content={pageinfo.contact.description} />
 	<meta property="og:title" content={pageinfo.contact.title} />
 
