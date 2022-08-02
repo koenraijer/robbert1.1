@@ -13,11 +13,10 @@ export async function GET() {
             }
         }
     } catch (err) {
-        const error = 'Error in getting data from server, try refreshing the page!'
         console.error(err);
         return {
             status: 500,
-            error
+            body: err.message
         }
     }
 }
