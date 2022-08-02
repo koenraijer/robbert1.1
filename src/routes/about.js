@@ -1,7 +1,7 @@
 import {client} from '$lib/js/graphql-client'
 import {aboutQuery, pageInfoQuery} from '$lib/js/graphql-queries'
 
-export async function get() {
+export async function GET() {
         try {
             let sm = 640;
             let md = 768;

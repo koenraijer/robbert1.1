@@ -2,7 +2,7 @@ import {client} from '$lib/js/graphql-client'
 import {marked} from 'marked';
 import {contactContentQuery, pageInfoQuery} from '$lib/js/graphql-queries'
 
-export async function get() {
+export async function GET() {
     try {
         const {contactContent} = await client.request(contactContentQuery) 
         const res2 = await client.request(pageInfoQuery).catch(err => console.log(err))

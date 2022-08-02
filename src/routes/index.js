@@ -2,7 +2,7 @@ import {client} from '$lib/js/graphql-client'
 import {projectsQuery, pageInfoQuery} from '$lib/js/graphql-queries'
 import {browser} from '$app/env'
 
-export async function get() {
+export async function GET() {
         try {
             let sm = 640;
             let md = 768;
