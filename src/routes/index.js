@@ -1,9 +1,18 @@
 import {client} from '$lib/js/graphql-client'
 import {projectsQuery, pageInfoQuery} from '$lib/js/graphql-queries'
-import {browser} from '$app/env'
+
+function errorHandler1(error) {
+    if (error instanceof MyCustomError) { // <<<<<<< test for previously thrown error 
+        throw error;
+    } else {
+        // do errorHandler1 stuff then
+        // return a result or 
+        // throw new MyCustomError() or 
+        // throw new Error(), new RangeError() etc. or some other type of custom error.
+    }
+}
 
 export async function GET() {
-        try {
             let sm = 640;
             let md = 768;
             let lg = 1024;
@@ -11,25 +20,19 @@ export async function GET() {
             let xxl = 1536;
             
             const variables = {sm, md, lg, xl, xxl}
-    
-            const res = await client.request(projectsQuery, variables).catch(err => console.log(err))
-            const res2 = await client.request(pageInfoQuery).catch(err => console.log(err))
-            const {pageinfo} = res2
-            const  {projects} = res
+
+            // await multiple promises, store them in two deconstructed consts, combined with .then().catch() syntax. 
+            const [{projects}, {pageinfo}] = await Promise.all([
+                client.request(projectsQuery, variables),
+                client.request(pageInfoQuery)
+            ]).catch(err => 
+                console.error(JSON.stringify(err, null, 2))
+                )
             
             return { 
+                status: 200,
                 body: { 
                     projects, sm, md, lg, xl, xxl, pageinfo
                 }
             }
-                
-            
-        } catch (err) {
-            const error = 'Error in getting data from server, try refreshing the page!'
-            console.error(error);
-            return {
-                status: 500,
-                error
-            }
-        }
 }

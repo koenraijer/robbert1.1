@@ -52,7 +52,7 @@
 
 <div class:overlay={$menu.open === true}></div>
 
-<div class="flex flex-col min-h-screen mx-4 sm:mx-6">
+<div class="flex flex-col min-h-screen mx-4 md:mx-12">
 	<Nav {scroll_up} {page_offset} />
 
 	{#key currentRoute}
