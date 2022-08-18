@@ -52,11 +52,11 @@
 
 <div class:overlay={$menu.open === true}></div>
 
-<div class="flex flex-col min-h-screen mx-4 md:mx-12">
+<div class="flex flex-col min-h-screen">
 	<Nav {scroll_up} {page_offset} />
 
 	{#key currentRoute}
-	<main in:fade={{ duration: 150 }} out:fade={{ duration: 150 }} class="h-fit overflow-hidden mx-auto flex-grow max-w-screen-lg  xl:max-w-screen-2xl">
+	<main in:fade={{ duration: 150 }} out:fade={{ duration: 150 }} class="h-fit overflow-hidden mx-auto flex-grow max-w-screen-lg  xl:max-w-screen-2xl px-4 md:px-12">
 			<slot></slot>
 	</main>
 	{/key}

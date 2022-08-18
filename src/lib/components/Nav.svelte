@@ -46,9 +46,9 @@
 </script>
 
 {#if scroll_up && page_offset > 0}
-    <nav in:fade="{{ duration: 150 }}" use:clickOutside on:click_outside={handle_click} class="py-3 pt-2 sm:py-7 sm:pt-6 w-full !z-100 {scroll_up && page_offset > 0 ? "fixed w-full bg-white !z-50 top-0" : "hidden"} pr-24">
+    <nav in:fade="{{ duration: 150 }}" use:clickOutside on:click_outside={handle_click} class="{max_w} mx-auto py-3 pt-2 sm:py-7 sm:pt-6 !z-100 {scroll_up && page_offset > 0 ? "fixed bg-white !z-50 top-0" : "hidden"} w-full px-4 md:px-12 -translate-x-1/2 left-1/2">
         <!-- Navbar content --> 
-        <div class="{max_w} flex flex-row flex-nowrap justify-between place-items-center mx-auto">
+        <div class="flex flex-row flex-nowrap justify-between place-items-center">
                         <!-- Title -->
                         <div class="w-fit">
                             <a href="{navigation[0].url}"><Title {scroll_up} {page_offset}/></a>
@@ -90,9 +90,9 @@
     </nav>
 {/if}
 
-<nav use:clickOutside on:click_outside={handle_click} class="py-3 pt-2 sm:py-7 sm:pt-6 !z-100 text-primary flex place-items-stretch">
+<nav use:clickOutside on:click_outside={handle_click} class="{max_w} mx-auto py-3 pt-2 sm:py-7 w-full sm:pt-6 !z-100 text-primary flex place-items-stretch px-4 md:px-12">
     <!-- Navbar content -->
-    <div class="{max_w} flex flex-row flex-nowrap justify-between mx-auto place-items-center !w-full">
+    <div class="flex flex-row flex-nowrap justify-between w-full place-items-center">
         <!-- Title -->
         <div class="w-fit">
             <a href="{navigation[0].url}"><Title {scroll_up} {page_offset}/></a>
