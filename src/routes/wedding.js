@@ -24,9 +24,9 @@ export async function GET() {
             }
                 
             
-        } catch (err) {
-            const error = 'Error in getting data from server, try refreshing the page!'
+        } catch (error) {
             console.error(error);
+            res.status(500).json({error: error.message })
             return {
                 status: 500,
                 error
