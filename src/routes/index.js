@@ -13,6 +13,7 @@ function errorHandler1(error) {
 }
 
 export async function GET() {
+        try {
             let sm = 640;
             let md = 768;
             let lg = 1024;
@@ -35,4 +36,12 @@ export async function GET() {
                     projects, sm, md, lg, xl, xxl, pageinfo
                 }
             }
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({error: error.message })
+            return {
+                status: 500,
+                error
+            }
+        }
 }
