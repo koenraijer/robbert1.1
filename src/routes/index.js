@@ -1,17 +1,6 @@
 import {client} from '$lib/js/graphql-client'
 import {projectsQuery, pageInfoQuery} from '$lib/js/graphql-queries'
 
-function errorHandler1(error) {
-    if (error instanceof MyCustomError) { // <<<<<<< test for previously thrown error 
-        throw error;
-    } else {
-        // do errorHandler1 stuff then
-        // return a result or 
-        // throw new MyCustomError() or 
-        // throw new Error(), new RangeError() etc. or some other type of custom error.
-    }
-}
-
 export async function GET() {
         try {
             let sm = 640;

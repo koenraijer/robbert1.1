@@ -7,6 +7,6 @@
     </div>
     <div class="flex flex-wrap justify-between">
         <span class="w-fit flex-shrink-0">© Robbert Lalisang {new Date().getFullYear()}. All rights reserved.</span>
-        <a href="https://studio.koenraijer.io/" rel="noopener noreferrer" class="text-slate-500"><span class="text-[0.50rem] sm:text-[0.60rem]">de</span> Studio <span class="text-[0.50rem] sm:text-[0.60rem]">van</span> <b>Koen</b>.</a>
+        <a href="https://koenraijer.com/" rel="noopener noreferrer" class="text-slate-500"><span class="text-[0.50rem] sm:text-[0.60rem]">de</span> Studio <span class="text-[0.50rem] sm:text-[0.60rem]">van</span> <b>Koen</b>.</a>
     </div>
 </footer>
