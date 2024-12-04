@@ -2,22 +2,64 @@
     import {client} from '$lib/js/graphql-client'
     import {weddingQuery} from '$lib/js/graphql-queries'
     export const load = async ({ params }) => {
-        const {slug} = params
+        try {
+            const {slug} = params
 
-        let sm = 640;
-        let md = 768;
-        let lg = 1024;
-        let xl = 1280;
-        let xxl = 1536;
+            // Enhanced validation for slug parameter
+            if (!slug || slug === 'undefined') {
+                throw new Error('Invalid URL: missing or invalid slug parameter')
+            }
 
-        const variables = {sm, md, lg, xl, xxl, slug}
+            const variables = {
+                sm: 640,
+                md: 768,
+                lg: 1024,
+                xl: 1280,
+                xxl: 1536,
+                slug
+            }
 
-        const {wedding} = await client.request(weddingQuery, variables)
+            const {wedding} = await client.request(weddingQuery, variables)
 
-        const project = wedding
-        return {
-            props: {
-                project, sm, md, lg, xl, xxl
+            const project = wedding
+
+            // Add null checks
+            if (!project) {
+                throw new Error('Project not found')
+            }
+            if (!project.image) {
+                throw new Error('Project images not found')
+            }
+
+            return {
+                props: {
+                    project, 
+                    sm: variables.sm,
+                    md: variables.md,
+                    lg: variables.lg,
+                    xl: variables.xl,
+                    xxl: variables.xxl
+                }
+            }
+        } catch (error) {
+            // Improve error logging with more context
+            console.error('Wedding page load error:', {
+                slug: params?.slug,
+                error: error.message,
+                stack: error.stack
+            })
+
+            // Return different status codes based on error type
+            if (!params?.slug) {
+                return {
+                    status: 404,
+                    error: new Error('Page not found')
+                }
+            }
+
+            return {
+                status: 500,
+                error: new Error(`Failed to load wedding page: ${error.message}`)
             }
         }
     }
