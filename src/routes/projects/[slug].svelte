@@ -2,21 +2,37 @@
     import {client} from '$lib/js/graphql-client'
     import {projectQuery} from '$lib/js/graphql-queries'
     export const load = async ({ params }) => {
-        const {slug} = params
+        try {
+            const {slug} = params
 
-        let sm = 640;
-        let md = 768;
-        let lg = 1024;
-        let xl = 1280;
-        let xxl = 1536;
+            let sm = 640;
+            let md = 768;
+            let lg = 1024;
+            let xl = 1280;
+            let xxl = 1536;
 
-        const variables = {sm, md, lg, xl, xxl, slug}
+            const variables = {sm, md, lg, xl, xxl, slug}
 
-        const {project} = await client.request(projectQuery, variables)
-        const imagez = project.image
-        return {
-            props: {
-                project, sm, md, lg, xl, xxl, imagez
+            const {project} = await client.request(projectQuery, variables)
+
+            // Add null checks
+            if (!project) {
+                throw new Error('Project not found')
+            }
+            if (!project.image) {
+                throw new Error('Project images not found')
+            }
+
+            return {
+                props: {
+                    project, sm, md, lg, xl, xxl
+                }
+            }
+        } catch (error) {
+            console.error(`Failed to load project ${params.slug}:`, error)
+            return {
+                status: 500,
+                error: new Error(`Failed to load project: ${error.message}`)
             }
         }
     }

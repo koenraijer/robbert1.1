@@ -2,21 +2,38 @@
     import {client} from '$lib/js/graphql-client'
     import {postQuery} from '$lib/js/graphql-queries'
     export const load = async ({ params }) => {
-        const {slug} = params
+        try {
+            const {slug} = params
 
-        let sm = 640;
-        let md = 768;
-        let lg = 1024;
-        let xl = 1280;
-        let xxl = 2560;
+            const variables = {
+                sm: 640, md: 768, lg: 1024, xl: 1280, xxl: 1536, 
+                slug
+            }
 
-        const variables = {sm, md, lg, xl, xxl, slug}
+            const {post} = await client.request(postQuery, variables)
 
-        const {post} = await client.request(postQuery, variables)
+            if (!post) {
+                throw new Error(`Failed to load post "${slug}"`)
+            }
+            if (!post.coverImage) {
+                throw new Error(`Failed to load cover image for post "${slug}"`)
+            }
 
-        return {
-            props: {
-                post, sm, md, lg, xl, xxl
+            return {
+                props: {
+                    post, 
+                    sm: variables.sm,
+                    md: variables.md,
+                    lg: variables.lg,
+                    xl: variables.xl,
+                    xxl: variables.xxl
+                }
+            }
+        } catch (error) {
+            console.error(`Failed to load post at ${variables.slug}:`, error)
+            return {
+                status: 500,
+                error: new Error(`Failed to load post: ${error.message}`)
             }
         }
     }
